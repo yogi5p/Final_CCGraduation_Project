@@ -16,15 +16,27 @@ module.exports = function(passport) {
       // facebook will send back the tokens and profile
       function(accessToken, refreshToken, profile, done) {
         const authId = "facebook:" + profile.id;
-        models.User.findOne({ where: { authId: authId } }, function(err, user) {
-          if (err) return done(err, null);
-          if (user) return done(null, user);
-          models.User.create({
-            authId: authId,
+        models.User.findOrCreate({
+          where: { authId: profile.id },
+          defaults: {
+            authId: profile.id,
             name: profile.displayName,
-            role: "user"
+            role: "user",
+            email: profile.email
+          }
+        })
+          .spread((user, newUserCreated) => {
+            console.log(
+              user.get({
+                plain: true
+              })
+            );
+            done(null, user);
+          })
+          .catch(err => {
+            console.log(err);
+            return done(err, null);
           });
-        });
       }
     )
   );

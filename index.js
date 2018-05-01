@@ -54,14 +54,21 @@ app.get("/logout", function(req, res) {
 });
 
 // register facebook routes index.js
+// Redirect the user to Facebook for authentication.  When complete,
+// Facebook will redirect the user back to the application at
+//     /auth/facebook/callback
 app.get("/login/facebook", passport.authenticate("facebook"));
 
+// Facebook will redirect the user to this URL after approval.  Finish the
+// authentication process by attempting to obtain an access token.  If
+// access was granted, the user will be logged in.  Otherwise,
+// authentication has failed.
 app.get(
   "/login/facebook/callback",
-  passport.authenticate("faceboook", { failureRedirect: "/" }),
-  function(req, res) {
-    res.redirect("/users");
-  }
+  passport.authenticate("facebook", {
+    successRedirect: "/",
+    failureRedirect: "/login"
+  })
 );
 
 app.get("/account", (req, res) => {
