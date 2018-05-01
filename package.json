@@ -1,47 +1,18 @@
 {
-  "name": "nodejs_example",
-  "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "bootstrap": "^3.3.7",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
-    "express-session": "^1.15.6",
-    "morgan": "^1.9.0",
-    "nodemon": "^1.17.3",
-    "passport": "^0.4.0",
-    "passport-facebook": "^2.1.1",
-    "passport-github": "^1.1.0",
-    "passport-google": "^0.3.0",
-    "passport-google-auth": "^1.0.2",
-    "react": "^16.3.2",
-    "react-bootstrap": "^0.32.1",
-    "react-dom": "^16.3.2",
-    "react-redux": "^5.0.7",
-    "react-router-bootstrap": "^0.24.4",
-    "react-router-dom": "^4.2.2",
-    "redux": "^4.0.0",
-    "sequelize": "^4.37.6",
-    "sequelize-cli": "^4.0.0",
-    "sqlite3": "^4.0.0"
-  },
-  "devDependencies": {},
+  "name": "final-ccgraduation-project",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "concurrently \"nodemon ./bin/www\" \"cd client && npm start\" "
   },
-  "author": "",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yogi5p/nodejs_first.git"
-  },
-  "keywords": [],
-  "bugs": {
-    "url": "https://github.com/yogi5p/nodejs_first/issues"
-  },
-  "homepage": "https://github.com/yogi5p/nodejs_first#readme",
-  "description": "\"# Final_CCGraduation_Project\""
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "nodemon": "^1.17.3"
+  }
 }
