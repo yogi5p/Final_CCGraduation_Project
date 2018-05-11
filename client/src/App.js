@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import doglogo from "./stylesheets/images/HauteDoglogo.png";
 
 class App extends Component {
   render() {
@@ -16,12 +17,7 @@ class App extends Component {
         <div id="header">
           {" "}
           <a href="#" id="logo">
-            <img
-              src="images/HauteDoglogo.png"
-              width="310"
-              height="114"
-              alt=""
-            />
+            <img src={doglogo} width="310" height="114" alt="" />
           </a>
           <ul class="navigation">
             <li class="active">
@@ -52,12 +48,7 @@ class App extends Component {
                 <li>
                   {" "}
                   <a href="#">
-                    <img
-                      src="images/puppy.jpg"
-                      width="114"
-                      height="160"
-                      alt=""
-                    />
+                    <img src="puppy.jpg" width="114" height="160" alt="" />
                   </a>
                   <h2>What they need</h2>
                   <p>
@@ -71,7 +62,7 @@ class App extends Component {
                 <li>
                   {" "}
                   <a href="#">
-                    <img src="images/cat.jpg" width="114" height="160" alt="" />
+                    <img src="cat.jpg" width="114" height="160" alt="" />
                   </a>
                   <h2>Something good</h2>
                   <p>
@@ -85,7 +76,7 @@ class App extends Component {
                 <li>
                   {" "}
                   <a href="#">
-                    <img src="images/koi.jpg" width="114" height="160" alt="" />
+                    <img src="koi.jpg" width="114" height="160" alt="" />
                   </a>
                   <h2>Kinds of Fish</h2>
                   <p>
@@ -99,12 +90,7 @@ class App extends Component {
                 <li>
                   {" "}
                   <a href="#">
-                    <img
-                      src="images/bird.jpg"
-                      width="114"
-                      height="160"
-                      alt=""
-                    />
+                    <img src="bird.jpg" width="114" height="160" alt="" />
                   </a>
                   <h2>Fun birds</h2>
                   <p>
@@ -211,7 +197,7 @@ class App extends Component {
               <li>
                 <a href="#">
                   <img
-                    src="images/organic-and-chemical-free.jpg"
+                    src="organic-and-chemical-free.jpg"
                     width="300"
                     height="90"
                     alt=""
@@ -220,22 +206,12 @@ class App extends Component {
               </li>
               <li>
                 <a href="#">
-                  <img
-                    src="images/good-food.jpg"
-                    width="300"
-                    height="90"
-                    alt=""
-                  />
+                  <img src="good-food.jpg" width="300" height="90" alt="" />
                 </a>
               </li>
               <li class="last">
                 <a href="#">
-                  <img
-                    src="images/pet-grooming.jpg"
-                    width="300"
-                    height="90"
-                    alt=""
-                  />
+                  <img src="pet-grooming.jpg" width="300" height="90" alt="" />
                 </a>
               </li>
             </ul>
