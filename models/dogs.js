@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('');
 const schema = mongoose.schema;
 
 const dogSchema = newSchema({
@@ -59,3 +59,4 @@ dogs.find({ dogName: '' }, function(err, dogs) {
     });
   });
   
+mongoose.models("dogs", dogSchema);

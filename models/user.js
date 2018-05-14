@@ -98,4 +98,4 @@ userSchema.methods.generateJWT = function() {
   exp.setDate(today.getDate() + 60);
 };
 
-mongoose.model("user", userSchema);
+mongoose.models("user", userSchema);

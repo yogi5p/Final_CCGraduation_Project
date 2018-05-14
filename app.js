@@ -6,17 +6,19 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-
+var require = "./models/user";
+var require = "./models/dogs";
+var require = "./db";
 var app = express();
 
-mongoose.connect("mongodb://localhost/4100", function(err) {
-  if (err) return console.error(err);
-  console.log("THE DB, mongo, is connected, and I ROCK");
-});
+mongoose.connect(
+  "mongodb://waggs:password@ds149603.mlab.com:49603/waggs",
+  function(err) {
+    if (err) return console.error(err);
+    console.log("THE DB, mongo, is connected, and I ROCK");
+  }
+);
 mongoose.set("debug", true);
-
-require("./models/user");
-require("./models/dogs");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -27,6 +29,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/", routes.index);
+app.post("/create", routes.create);
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
