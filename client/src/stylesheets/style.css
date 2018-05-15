@@ -627,7 +627,7 @@ body {
   background: url("images/buttons.gif");
   background-position: 0 -270px;
   background-repeat: no-repeat;
-  width: 115px;
+
   height: 30px;
   border: 0;
   margin: 8px 8px 8px 0;
@@ -813,7 +813,7 @@ body {
   background-image: none;
 }
 #body #content #sidebar .featured ul li p a.more {
-  color: #ff9506;
+  color: blue;
 }
 #body #content #sidebar .featured ul li p a.more:hover {
   color: #7f7154;
@@ -892,7 +892,7 @@ body {
 #body .featured {
   background-color: #f8f3e9;
   height: 90px;
-  padding: 20px 0;
+  padding: 15px 0;
   background-image: none;
   overflow: hidden;
 }
@@ -903,8 +903,8 @@ body {
   list-style-type: none;
 }
 #body .featured ul li {
-  float: left;
-  margin-right: 30px;
+  float: center;
+  margin-right: 15px;
   height: 90px;
 }
 #body .featured ul li.last {
@@ -936,7 +936,6 @@ body {
   list-style-type: none;
 }
 #footer .section ul li {
-  float: left;
   width: 240px;
   height: 190px;
 }
