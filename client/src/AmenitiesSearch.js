@@ -90,13 +90,6 @@ class AmenitiesSearch extends Component {
     if (this.props.zipCode) {
       switch (this.props.amenitySelected) {
         case "events":
-          var payload = services.SearchAmenities.getDetails(
-            this.props.zipCode,
-            this.props.amenitySelected
-          );
-          this.setState({
-            favoriteEvents: payload
-          });
           this.props.Events(
             this.props.zipCode,
             this.props.amenitySelected,
@@ -104,14 +97,7 @@ class AmenitiesSearch extends Component {
           );
           break;
         case "dog parks":
-          var payload = services.SearchAmenities.getDetails(
-            this.props.zipCode,
-            this.props.amenitySelected
-          );
-          this.setState({
-            favoriteParks: payload
-          });
-          console.log(this.props.favoriteParks);
+          console.log(this.props.amenities);
           this.props.Parks(
             this.props.zipCode,
             this.props.amenitySelected,
@@ -119,14 +105,6 @@ class AmenitiesSearch extends Component {
           );
           break;
         case "pet stores":
-          var payload = services.SearchAmenities.getDetails(
-            this.props.zipCode,
-            this.props.amenitySelected
-          );
-          this.setState({
-            favoriteStores: payload
-          });
-          console.log(this.state.favoriteStores);
           this.props.Stores(
             this.props.zipCode,
             this.props.amenitySelected,
@@ -150,6 +128,7 @@ class AmenitiesSearch extends Component {
         default:
           return true;
       } //end of switch
+      return true;
     } //end if
   } //end of component mount
 

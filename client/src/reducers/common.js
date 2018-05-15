@@ -1,9 +1,5 @@
 const initalState = {
   amenities: [],
-  favoriteEvents: [],
-  favoriteParks: [],
-  favoriteStores: [],
-  favoriteVets: [],
   zipCode: "",
   amenitySelected: "",
   //userAuthenticated: false,
@@ -14,41 +10,41 @@ const initalState = {
 export const common = (state = initalState, action) => {
   switch (action.type) {
     case "EVENTS":
+      console.log(action.payload.items);
       return {
         ...state,
-        amenities: action.payload.results.filter(a => a.poster_path),
+        amenities: action.payload.items,
         inProgress: false
       };
     case "PARKS":
+      console.log(action.payload.items);
       return {
         ...state,
-        favoriteParks: action.payload.results.filter(a => a.poster_path),
+        amenities: action.payload.items,
         inProgress: false
       };
     case "STORES":
       return {
         ...state,
-        favoriteStores: action.payload.results.filter(a => a.poster_path),
+        amenities: action.payload.items,
         inProgress: false
       };
     case "VETS":
       return {
         ...state,
-        favoriteVets: action.payload.amenities,
+        amenities: action.payload.items,
         inProgress: false
       };
     case "GROOMING":
       return {
         ...state,
-        favoriteVets: action.payload.amenities,
+        amenities: action.payload.items,
         inProgress: false
       };
     case "HOTELS":
       return {
         ...state,
-        //   user: action.payload.user,
-        //   token: action.payload.user.token,
-        //   isAuthenticated: action.payload.user ? true : false,
+        amenities: action.payload.items.filter(a => a.title),
         inProgress: false,
         redirect: "/"
       };

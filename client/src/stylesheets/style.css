@@ -624,14 +624,14 @@ body {
 	color:#7f7154;
 }
 #body #content #sidebar .search button {
-	background:url("images/buttons.gif");
-	background-position: 0 -270px;
-	background-repeat:no-repeat;
-	width:77px;
-	height:30px;
-	border:0;
-	margin:5px 5px 5px 0;
-	cursor:pointer;
+  background: url("images/buttons.gif");
+  background-position: 0 -270px;
+  background-repeat: no-repeat;
+
+  height: 30px;
+  border: 0;
+  margin: 8px 8px 8px 0;
+  cursor: pointer;
 }
 #body #content #sidebar .search label {
 	font-size:14px;
@@ -887,117 +887,116 @@ body {
 	filter:alpha(opacity=80);
 }
 /**------------------------ End of sidebar style  ----------------------**/
-  
-  /**----------- Start of featured Style -------------**/
-  #body .featured {
-	background-color: #f8f3e9;
-	height: 90px;
-	padding: 20px 0;
-	background-image: none;
-	overflow: hidden;
-  }
-  #body .featured ul {
-	margin: 0 auto;
-	padding: 0;
-	width: 960px;
-	list-style-type: none;
-  }
-  #body .featured ul li {
-	float: left;
-	margin-right: 30px;
-	height: 90px;
-  }
-  #body .featured ul li.last {
-	margin-right: 0;
-  }
-  #body .featured ul li a {
-	text-decoration: none;
-  }
-  #body .featured ul li a {
-	text-decoration: none;
-  }
-  #body .featured ul li a img {
-	border: 0;
-  }
-  /**--------------- Start of footer style ------------------**/
-  #footer {
-	background-color: #310000;
-	background-image: none;
-  }
-  #footer .section {
-	width: 960px;
-	margin: 0 auto;
-	overflow: hidden;
-	position: relative;
-  }
-  #footer .section ul {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-  }
-  #footer .section ul li {
-	float: left;
-	width: 240px;
-	height: 190px;
-  }
-  #footer .section ul li img {
-	position: absolute;
-	top: 0;
-  }
-  #footer .section ul li h2 {
-	position: relative;
-	top: 60px;
-	left: 0;
-	z-index: 10;
-	padding: 0 10px 0 15px;
-	margin: 20px 0 -15px 0; /*
-		*margin:30px 0 -20px 0;
-		*/
-  }
-  #footer .section ul li h2 a {
-	font-family: "Myriad Pro", Arial;
-	font-size: 16px;
-	color: #bffb05;
-	text-decoration: none;
-	font-weight: normal;
-  }
-  #footer .section ul li p {
-	position: relative;
-	top: 60px;
-	padding: 0 10px 0 15px;
-	z-index: 10;
-	font-family: "Myriad Pro";
-	font-size: 14px;
-	color: #ffffff;
-	line-height: 20px;
-  }
-  #footer .section ul li p a {
-	color: #ffffff;
-  }
-  #footer .section ul li p a:hover {
-	color: #ff6700;
-  }
-  #footer .section ul li p a.more {
-	color: #ff6700;
-  }
-  #footer .section ul li p a.more:hover {
-	color: #ffffff;
-  }
-  #footer #footnote {
-	background-color: #ffad00;
-  }
-  #footer #footnote .section {
-	width: 960px;
-	height: 50px;
-	text-align: center;
-	line-height: 50px;
-	font-family: "Myriad Pro";
-	font-size: 13px;
-  }
-  #footer #footnote .section a {
-	text-decoration: none;
-	color: #000000;
-  }
-  #footer #footnote .section a:hover {
-	color: #ffffff;
-  }
+
+/**----------- Start of featured Style -------------**/
+#body .featured {
+  background-color: #f8f3e9;
+  height: 90px;
+  padding: 15px 0;
+  background-image: none;
+  overflow: hidden;
+}
+#body .featured ul {
+  margin: 0 auto;
+  padding: 0;
+  width: 960px;
+  list-style-type: none;
+}
+#body .featured ul li {
+  float: center;
+  margin-right: 15px;
+  height: 90px;
+}
+#body .featured ul li.last {
+  margin-right: 0;
+}
+#body .featured ul li a {
+  text-decoration: none;
+}
+#body .featured ul li a {
+  text-decoration: none;
+}
+#body .featured ul li a img {
+  border: 0;
+}
+/**--------------- Start of footer style ------------------**/
+#footer {
+  background-color: #310000;
+  background-image: none;
+}
+#footer .section {
+  width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+#footer .section ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+#footer .section ul li {
+  width: 240px;
+  height: 190px;
+}
+#footer .section ul li img {
+  position: absolute;
+  top: 0;
+}
+#footer .section ul li h2 {
+  position: relative;
+  top: 60px;
+  left: 0;
+  z-index: 10;
+  padding: 0 10px 0 15px;
+  margin: 20px 0 -15px 0; /*
+	  *margin:30px 0 -20px 0;
+	  */
+}
+#footer .section ul li h2 a {
+  font-family: "Myriad Pro", Arial;
+  font-size: 16px;
+  color: #bffb05;
+  text-decoration: none;
+  font-weight: normal;
+}
+#footer .section ul li p {
+  position: relative;
+  top: 60px;
+  padding: 0 10px 0 15px;
+  z-index: 10;
+  font-family: "Myriad Pro";
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 20px;
+}
+#footer .section ul li p a {
+  color: #ffffff;
+}
+#footer .section ul li p a:hover {
+  color: #ff6700;
+}
+#footer .section ul li p a.more {
+  color: #ff6700;
+}
+#footer .section ul li p a.more:hover {
+  color: #ffffff;
+}
+#footer #footnote {
+  background-color: #ffad00;
+}
+#footer #footnote .section {
+  width: 960px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-family: "Myriad Pro";
+  font-size: 13px;
+}
+#footer #footnote .section a {
+  text-decoration: none;
+  color: #000000;
+}
+#footer #footnote .section a:hover {
+  color: #ffffff;
+}

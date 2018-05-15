@@ -7,33 +7,12 @@ const AmenityCards = ({ amenities, amenitySelected }) => {
   return (
     <Row>
       {amenities.map((amenity, index) => (
-        <div key={amenity.id || amenity.amenity_id}>
+        <div key={amenity.title}>
           <Col xs={6} md={4}>
-            <Thumbnail
-              src={"https://image.tmdb.org/t/p/w500/" + amenity.poster_path}
-              alt={"242x200"}
-            >
+            <Thumbnail src={amenity.formattedUrl} alt={"242x200"}>
               <h3>{amenity.title}</h3>
-              <p>{amenity.overview}</p>
-              {/* <p>
-                {amenity.id ? (
-                  <Button
-                    bsStyle="primary"
-                    onClick={() =>
-                      openAmenityClicked(amenity.title, amenity.id)
-                    }
-                  >
-                    Details
-                  </Button>
-                ) : (
-                  <Button
-                    bsStyle="primary"
-                    onClick={() => openAmenityClicked(movie.movie_id)}
-                  >
-                    Unfavorite
-                  </Button>
-                )}
-              </p> */}
+              <p>{amenity.snippet}</p>
+              {/* <p>{amenity.pagemap.postaladdress}</p> */}
             </Thumbnail>
           </Col>
 
