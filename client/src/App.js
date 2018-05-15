@@ -437,6 +437,8 @@ class App extends Component {
           </div>
           <div id="footnote">
             <div class="section">
+              Copyright &copy; 2018 <a href="#">Team Wagg - WOZ-U</a> All rights
+              reserved
               {/* Copyright &copy; 2012 <a href="#">Company Name</a> All rights
               reserved | Website Template By{" "}
               <a target="_blank" href="http://www.freewebsitetemplates.com/">
@@ -447,7 +449,7 @@ class App extends Component {
         </div>
         <Route
           exact
-          path="/"
+          path="/AmenitiesSearch"
           render={props => (
             <AmenitiesSearch
               {...props}

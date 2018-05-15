@@ -12,6 +12,11 @@ import { connect } from "react-redux";
 import AmenityCards from "./AmenityCards";
 
 const mapStateToProps = state => ({
+  amenities: state.common.amenities,
+  favoriteEvents: state.common.favoriteEvents,
+  favoriteParks: state.common.favoriteParks,
+  favoriteStores: state.common.favoriteStores,
+  favoriteVets: state.common.favoriteVets,
   zipCode: state.common.zipCode,
   amenitySelected: state.common.amenitySelected,
   token: state.common.token
@@ -21,124 +26,132 @@ const mapDispatchToProps = dispatch => ({
   Events: (zipCode, amenity, token) =>
     dispatch({
       type: "EVENTS",
-      payload: services.SearchAmenities.getDetails(
-        zipCode,
-        this.props.amenitySelected
-      )
+      payload: services.SearchAmenities.getDetails(zipCode, amenity)
+    }),
+  Stores: (zipCode, amenity, token) =>
+    dispatch({
+      type: "STORES",
+      payload: services.SearchAmenities.getDetails(zipCode, amenity)
     }),
   Parks: (zipCode, amenity, token) =>
     dispatch({
       type: "PARKS",
-      payload: services.SearchAmenities.getDetails(
-        zipCode,
-        this.props.amenitySelected
-      )
+      payload: services.SearchAmenities.getDetails(zipCode, amenity)
     })
 });
 
 class AmenitiesSearch extends Component {
-  componentWillMount() {
-    // if (this.props.zipCode) {
-    console.log(this.props.zipCode);
-    switch (this.props.amenitySelected) {
-      case "events":
-        this.props.Events(
-          this.props.zipCode,
-          this.props.amenitySelected,
-          this.props.token
-        );
-        break;
-      case "dogparks":
-        this.props.Parks(
-          this.props.zipCode,
-          this.props.amenitySelected,
-          this.props.token
-        );
-        break;
-      case "petstores":
-        this.props.Events(
-          this.props.zipCode,
-          this.props.amenitySelected,
-          this.props.token
-        );
-        break;
-      case "vetclinics":
-        this.props.Events(
-          this.props.zipCode,
-          this.props.amenitySelected,
-          this.props.token
-        );
-        break;
-      case "hotels":
-        this.props.Events(
-          this.props.zipCode,
-          this.props.amenitySelected,
-          this.props.token
-        );
-        break;
-      default:
-        break;
-    } //end of switch
-    // } //end if
-  } //end of component mount
+  // componentWillMount() {
+  //   // if (this.props.zipCode) {
+  //   console.log(this.props.amenitySelected);
+  //   switch (this.props.amenitySelected) {
+  //     case "events":
+  //       this.props.Events(
+  //         this.props.zipCode,
+  //         this.props.amenitySelected,
+  //         this.props.token
+  //       );
+  //       break;
+  //     case "dog parks":
+  //       this.props.Parks(
+  //         this.props.zipCode,
+  //         this.props.amenitySelected,
+  //         this.props.token
+  //       );
+  //       break;
+  //     case "pet stores":
+  //       this.props.Events(
+  //         this.props.zipCode,
+  //         this.props.amenitySelected,
+  //         this.props.token
+  //       );
+  //       break;
+  //     case "vet clinics":
+  //       this.props.Events(
+  //         this.props.zipCode,
+  //         this.props.amenitySelected,
+  //         this.props.token
+  //       );
+  //       break;
+  //     case "hotels dog":
+  //       this.props.Events(
+  //         this.props.zipCode,
+  //         this.props.amenitySelected,
+  //         this.props.token
+  //       );
+  //       break;
+  //     default:
+  //       break;
+  //   } //end of switch
+  //   // } //end if
+  // } //end of component mount
 
   shouldComponentUpdate() {
-    // if (this.props.zipCode) {
-    console.log(this.props.zipCode);
-    switch (this.props.amenitySelected) {
-      case "events":
-        this.props.Events(
-          this.props.zipCode,
-          this.props.amenitySelected,
-          this.props.token
-        );
-        break;
-      case "dogparks":
-        this.props.Parks(
-          this.props.zipCode,
-          this.props.amenitySelected,
-          this.props.token
-        );
-        break;
-      case "petstores":
-        this.props.Events(
-          this.props.zipCode,
-          this.props.amenitySelected,
-          this.props.token
-        );
-        break;
-      case "vetclinics":
-        this.props.Events(
-          this.props.zipCode,
-          this.props.amenitySelected,
-          this.props.token
-        );
-        break;
-      case "hotels":
-        this.props.Events(
-          this.props.zipCode,
-          this.props.amenitySelected,
-          this.props.token
-        );
-        break;
-      default:
-        break;
-    } //end of switch
-    // } //end if
+    if (this.props.zipCode) {
+      switch (this.props.amenitySelected) {
+        case "events":
+          var payload = services.SearchAmenities.getDetails(
+            this.props.zipCode,
+            this.props.amenitySelected
+          );
+          this.setState({
+            favoriteEvents: payload
+          });
+          this.props.Events(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "dog parks":
+          var payload = services.SearchAmenities.getDetails(
+            this.props.zipCode,
+            this.props.amenitySelected
+          );
+          this.setState({
+            favoriteParks: payload
+          });
+          console.log(this.props.favoriteParks);
+          this.props.Parks(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "pet stores":
+          var payload = services.SearchAmenities.getDetails(
+            this.props.zipCode,
+            this.props.amenitySelected
+          );
+          this.setState({
+            favoriteStores: payload
+          });
+          console.log(this.state.favoriteStores);
+          this.props.Stores(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "vet clinics":
+          this.props.Events(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "hotels":
+          this.props.Events(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        default:
+          return true;
+      } //end of switch
+    } //end if
   } //end of component mount
-
-  //   onUnFavoriteClick = zipCode => {
-  //     //   this.props.movieUnFavorites(this.zipCode, this.props.token);
-  //     services.Movie.delfavorite(zipCode, this.props.token)
-  //       .then(resp => resp.json())
-  //       .then(payload => this.props.history.push("/"))
-  //       .catch(err => console.log(err));
-  //   };
-
-  openAmenityClicked = zipCode => {
-    this.props.amenityFavorites(this.props.zipCode, this.props.token);
-    this.props.history.push("/");
-  };
 
   render() {
     return (
@@ -148,10 +161,10 @@ class AmenitiesSearch extends Component {
         ) : (
           <hr />
         )}
+        {console.log(this.props.amenities)}
         <AmenityCards
           amenities={this.props.amenities}
           amenitySelected={this.props.amenitySelected}
-          //          openAmenityClicked={this.openAmenityClicked}
         />
       </Grid>
     );

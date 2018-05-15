@@ -1,6 +1,8 @@
 const initalState = {
   amenities: [],
+  favoriteEvents: [],
   favoriteParks: [],
+  favoriteStores: [],
   favoriteVets: [],
   zipCode: "",
   amenitySelected: "",
@@ -20,7 +22,13 @@ export const common = (state = initalState, action) => {
     case "PARKS":
       return {
         ...state,
-        favoriteParks: action.payload.amenities,
+        favoriteParks: action.payload.results.filter(a => a.poster_path),
+        inProgress: false
+      };
+    case "STORES":
+      return {
+        ...state,
+        favoriteStores: action.payload.results.filter(a => a.poster_path),
         inProgress: false
       };
     case "VETS":
