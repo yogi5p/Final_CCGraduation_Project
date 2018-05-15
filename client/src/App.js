@@ -21,6 +21,9 @@ import {
   ControlLabel
 } from "react-bootstrap";
 import AmenitiesSearch from "./AmenitiesSearch";
+import Login from "./Login";
+import Signup from "./Signup";
+// import NavBar from "./NavBar";
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
@@ -353,6 +356,8 @@ class App extends Component {
             </div>
           </div>
         </div>
+        <Route exact path="/Login" component={Login} />
+        <Route path="/Signup" name="Signup" component={Signup} />
         <Route
           exact
           path="/AmenitiesSearch"
