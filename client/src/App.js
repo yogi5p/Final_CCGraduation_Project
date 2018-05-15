@@ -6,13 +6,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
         <div id="header">
           {" "}
           <a href="#" id="logo">
@@ -206,6 +199,8 @@ class App extends Component {
               </div>
             </div>
           </div>
+        </div>
+        <div id="footer">
           <div class="featured">
             <ul>
               <li>
@@ -240,98 +235,9 @@ class App extends Component {
               </li>
             </ul>
           </div>
-        </div>
-        <div id="footer">
-          <div class="section">
-            <ul>
-              <li>
-                {" "}
-                <img
-                  src="images/friendly-pets.jpg"
-                  width="240"
-                  height="186"
-                  alt=""
-                />
-                <h2>
-                  <a href="#">Friendly Pets</a>
-                </h2>
-                <p>
-                  {" "}
-                  Lorem ipsum dolor sit amet, consectetuer adepiscing elit, sed
-                  diam nonummy nib.{" "}
-                  <a class="more" href="#">
-                    Read More
-                  </a>{" "}
-                </p>
-              </li>
-              <li>
-                {" "}
-                <img
-                  src="images/pet-lover2.jpg"
-                  width="240"
-                  height="186"
-                  alt=""
-                />
-                <h2>
-                  <a href="#">How dangerous are they</a>
-                </h2>
-                <p>
-                  {" "}
-                  Lorem ipsum dolor sit amet, cons ectetuer adepis cing, sed
-                  diam euis.{" "}
-                  <a class="more" href="#">
-                    Read More
-                  </a>{" "}
-                </p>
-              </li>
-              <li>
-                {" "}
-                <img
-                  src="images/healthy-dog.jpg"
-                  width="240"
-                  height="186"
-                  alt=""
-                />
-                <h2>
-                  <a href="#">Keep them healthy</a>
-                </h2>
-                <p>
-                  {" "}
-                  Lorem ipsum dolor sit amet, consectetuer adepiscing elit, sed
-                  diam nonu mmy.{" "}
-                  <a class="more" href="#">
-                    Read More
-                  </a>{" "}
-                </p>
-              </li>
-              <li>
-                <h2>
-                  <a href="#">Love...love...love...pets</a>
-                </h2>
-                <p>
-                  {" "}
-                  Lorem ipsum dolor sit amet, consectetuer adepiscing elit, sed
-                  diameusim.{" "}
-                  <a class="more" href="#">
-                    Read More
-                  </a>{" "}
-                </p>
-                <img
-                  src="images/pet-lover.jpg"
-                  width="240"
-                  height="186"
-                  alt=""
-                />{" "}
-              </li>
-            </ul>
-          </div>
           <div id="footnote">
             <div class="section">
-              Copyright &copy; 2012 <a href="#">Company Name</a> All rights
-              reserved | Website Template By{" "}
-              <a target="_blank" href="http://www.freewebsitetemplates.com/">
-                freewebsitetemplates.com
-              </a>
+              <a href="/">Waggs Space</a>
             </div>
           </div>
         </div>
