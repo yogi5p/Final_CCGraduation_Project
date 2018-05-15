@@ -9,15 +9,23 @@ const initalState = {
 
 export const common = (state = initalState, action) => {
   switch (action.type) {
+    case "LOGIN":
+    case "REGISTER":
+      return {
+        ...state,
+        user: action.payload.user,
+        token: action.payload.user.token,
+        isAuthenticated: action.payload.user ? true : false,
+        inProgress: false,
+        redirect: "/"
+      };
     case "EVENTS":
-      console.log(action.payload.items);
       return {
         ...state,
         amenities: action.payload.items,
         inProgress: false
       };
     case "PARKS":
-      console.log(action.payload.items);
       return {
         ...state,
         amenities: action.payload.items,
@@ -44,7 +52,7 @@ export const common = (state = initalState, action) => {
     case "HOTELS":
       return {
         ...state,
-        amenities: action.payload.items.filter(a => a.title),
+        amenities: action.payload.items,
         inProgress: false,
         redirect: "/"
       };
