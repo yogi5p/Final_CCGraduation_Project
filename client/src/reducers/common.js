@@ -43,7 +43,7 @@ export const common = (state = initalState, action) => {
         amenities: action.payload.items,
         inProgress: false
       };
-    case "GROOMING":
+    case "GROOMERS":
       return {
         ...state,
         amenities: action.payload.items,
