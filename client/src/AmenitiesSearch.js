@@ -37,6 +37,21 @@ const mapDispatchToProps = dispatch => ({
     dispatch({
       type: "PARKS",
       payload: services.SearchAmenities.getDetails(zipCode, amenity)
+    }),
+  Vets: (zipCode, amenity, token) =>
+    dispatch({
+      type: "VETS",
+      payload: services.SearchAmenities.getDetails(zipCode, amenity)
+    }),
+  Hotels: (zipCode, amenity, token) =>
+    dispatch({
+      type: "HOTELS",
+      payload: services.SearchAmenities.getDetails(zipCode, amenity)
+    }),
+  Groomers: (zipCode, amenity, token) =>
+    dispatch({
+      type: "GROOMERS",
+      payload: services.SearchAmenities.getDetails(zipCode, amenity)
     })
 });
 
@@ -89,7 +104,7 @@ class AmenitiesSearch extends Component {
   shouldComponentUpdate() {
     if (this.props.zipCode) {
       switch (this.props.amenitySelected) {
-        case "events":
+        case "events dog":
           this.props.Events(
             this.props.zipCode,
             this.props.amenitySelected,
@@ -112,14 +127,21 @@ class AmenitiesSearch extends Component {
           );
           break;
         case "vet clinics":
-          this.props.Events(
+          this.props.Vets(
             this.props.zipCode,
             this.props.amenitySelected,
             this.props.token
           );
           break;
-        case "hotels":
-          this.props.Events(
+        case "hotels dog":
+          this.props.Hotels(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "groomers dog":
+          this.props.Groomers(
             this.props.zipCode,
             this.props.amenitySelected,
             this.props.token
@@ -135,13 +157,18 @@ class AmenitiesSearch extends Component {
   render() {
     return (
       <Grid>
-        {this.props.zipCode == "" ? (
-          <h2>My Amenities List</h2> > <hr />
+        {this.props.zipCode !== "" ? (
+          (
+            <h2>
+              {this.props.amenitySelected} @ {this.props.zipCode}
+            </h2>
+          ) > <hr />
         ) : (
           <hr />
         )}
         {console.log(this.props.amenities)}
         <AmenityCards
+          zipCode={this.props.zipCode}
           amenities={this.props.amenities}
           amenitySelected={this.props.amenitySelected}
         />
