@@ -15,8 +15,9 @@ import {
   InputGroup,
   ControlLabel
 } from "react-bootstrap";
-import { Link, Route, withRouter } from "react-router-dom";
+import { Link, Router, Route, withRouter } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
+import Amenities from "./Amenities";
 
 class NavBar extends Component {
   componentWillReceiveProps(nextProps) {
@@ -40,11 +41,13 @@ class NavBar extends Component {
             />
           </a>
           <ul class="navigation">
-            <li class="active">
-              <a href="index.html">Home</a>
+            <li className="active">
+              <Link to="/">Home</Link>
+              {/* <a href="index.html">Home</a> */}
             </li>
             <li>
-              <a href="amenities.html">Amenities</a>
+              <Link to="/Amenities">Amenities</Link>
+              {/* <a href="amenities.html">Amenities</a> */}
             </li>
             <li>
               <a href="about.html">About us</a>
