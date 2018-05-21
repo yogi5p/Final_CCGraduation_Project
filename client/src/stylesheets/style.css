@@ -281,52 +281,6 @@ body {
 }
 /**--------- End of Blog Page Style **/
 
-/**----------- Start of Pet Mart Page Style ----------**/
-
-#body #content .search {
-  background: url("images/bg-search-form2.gif");
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 640px;
-  height: 175px;
-  margin: 0 auto;
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
-#body #content .search input {
-  background: url("images/input-search2.gif");
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 420px;
-  padding: 8px 5px;
-  border: 0;
-  margin: 5px 3px 5px 10px;
-  font-size: 14px;
-  font-family: "Myriad Pro";
-  color: #7f7154;
-}
-#body #content .search button {
-  background: url("images/buttons.gif");
-  background-position: 0 -270px;
-  background-repeat: no-repeat;
-  width: 77px;
-  height: 30px;
-  border: 0;
-  margin: 5px 5px 5px 0;
-  cursor: pointer;
-}
-#body #content .search label {
-  font-size: 14px;
-  font-family: "Myriad Pro";
-  color: #ffffff;
-}
-#body #content .search label input {
-  margin: 0 10px 0 10px;
-  width: 10px;
-  background: transparent;
-}
-/**----------- End of Pet Mart Page Style ----------**/
-
 /**------------ Start of About page style  -------------**/
 
 #body #content .content .about {
@@ -1033,5 +987,51 @@ ul#horizontal-list li {
 
 /* Add some padding inside the card container */
 .card_content {
-  padding: 2px 16px;
+  padding: 4px 10px;
 }
+
+/**----------- Start of Search Elements Style ----------**/
+
+#content .search {
+  background: url("images/bg-search-form4.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 640px;
+  height: 175px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+#content .search input {
+  background: url("images/input-search2.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 420px;
+  padding: 8px 5px;
+  border: 0;
+  margin: 35px 5px 15px 60px;
+  font-size: 14px;
+  font-family: "Myriad Pro";
+  color: #7f7154;
+}
+#content .search button {
+  background: url("images/buttons_search.png");
+  background-position: 0 -270px;
+  background-repeat: no-repeat;
+  width: 77px;
+  height: 30px;
+  border: 0;
+  margin: 5px 5px 5px 5px;
+  cursor: pointer;
+}
+#content .search label {
+  font-size: 14px;
+  font-family: "Myriad Pro";
+  color: #ffffff;
+  margin: 0 7px;
+}
+#content .search label input {
+  margin: 0 10px 0 10px;
+  width: 10px;
+  background: transparent;
+}
+/**----------- End of Search Elements Style ----------**/
