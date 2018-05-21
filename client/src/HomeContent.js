@@ -71,21 +71,22 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class HomeContent extends Component {
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.amenitySelected !== this.props.amenitySelected) {
-      this.props.setAmenitySelected("dog parks");
-    }
-    if (nextProps.redirect) {
-      this.props.history.push(nextProps.redirect);
-      this.props.redirectTo();
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.amenitySelected !== this.props.amenitySelected) {
+  //     this.props.setAmenitySelected(this.props.amenitySelected);
+  //   }
+  //   if (nextProps.redirect) {
+  //     this.props.history.push(nextProps.redirect);
+  //     this.props.redirectTo();
+  //   }
+  // }
 
   amenitySearch = () => {
     console.log(this.props.amenitySelected);
     console.log(this.props.zipCode);
     console.log(this.props.amenities);
     console.log(this.props);
+    this.props.setAmenitySelected(this.props.amenitySelected);
     this.props.history.push("/Amenities");
   };
 

@@ -15,10 +15,13 @@ import "./stylesheets/style.css";
 import Footer from "./Footer";
 
 const mapStateToProps = state => ({
-  amenities: state.common.amenities,
   zipCode: state.common.zipCode,
+  amenities: state.common.amenities,
   amenitySelected: state.common.amenitySelected,
-  token: state.common.token
+  user: state.common.user,
+  token: state.common.token,
+  redirect: state.common.redirect,
+  userAuthenticated: state.common.isAuthenticated
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -60,24 +63,10 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class Amenities extends Component {
-  componentWillReceiveProps(nextProps) {
-    // fires immediately before the initial render
-    console.log(this.props.amenitySelected);
-    console.log(this.props.zipCode);
-    console.log(this.props.amenities);
-    // console.log(nextProps.amenitySelected);
-    // console.log(nextProps.zipCode);
-    console.log(nextProps);
-    if (nextProps.amenitySelected !== this.props.amenitySelected) {
-      this.props.setAmenitySelected("dog parks");
-    }
-    if (nextProps.zipCode !== this.props.zipCode) {
-      this.props.setSearchTerm(nextProps.zipCode);
-    }
-  }
-
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.amenitySelected !== this.props.amenitySelected) {
+  componentWillMount() {
+    // if (nextProps.amenitySelected !== this.props.amenitySelected)
+    {
+      console.log(this.props.amenitySelected);
       switch (this.props.amenitySelected) {
         case "events dog":
           this.props.Events(
@@ -87,7 +76,6 @@ class Amenities extends Component {
           );
           break;
         case "dog parks":
-          console.log(this.props.amenities);
           this.props.Parks(
             this.props.zipCode,
             this.props.amenitySelected,
@@ -125,35 +113,38 @@ class Amenities extends Component {
         default:
           return true;
       } //end of switch
+      console.log(this.props.amenities);
     } //end if
     return true;
   } //end of component mount
 
   render() {
     return (
-      <Grid>
-        <div style={{ marginTop: "100px" }}>
+      <div>
+        <div style={{ marginTop: "60px" }}>
           <AmenitiesSearch {...this.props} />
         </div>
-        {console.log("From Amenities " + this.props.amenities)}
-        {this.props.zipCode != "" ? (
-          (
-            <h2>
-              {this.props.amenitySelected} @ {this.props.zipCode}
-            </h2>
-          ) > <hr />
-        ) : (
-          <hr />
-        )}
-        <AmenityCards
-          zipCode={this.props.zipCode}
-          amenities={this.props.amenities}
-          amenitySelected={this.props.amenitySelected}
-        />
+        <Grid>
+          {console.log("From Amenities " + this.props.amenities)}
+          {this.props.zipCode != "" ? (
+            (
+              <h2>
+                {this.props.amenitySelected} @ {this.props.zipCode}
+              </h2>
+            ) > <hr />
+          ) : (
+            <hr />
+          )}
+          <AmenityCards
+            zipCode={this.props.zipCode}
+            amenities={this.props.amenities}
+            amenitySelected={this.props.amenitySelected}
+          />
+        </Grid>
         <div id="footer">
           <Footer />
         </div>
-      </Grid>
+      </div>
     );
   }
 }

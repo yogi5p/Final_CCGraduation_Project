@@ -22,10 +22,13 @@ import AmenityCards from "./AmenityCards";
 import "./stylesheets/style.css";
 
 const mapStateToProps = state => ({
-  amenities: state.common.amenities,
   zipCode: state.common.zipCode,
+  amenities: state.common.amenities,
   amenitySelected: state.common.amenitySelected,
-  token: state.common.token
+  user: state.common.user,
+  token: state.common.token,
+  redirect: state.common.redirect,
+  userAuthenticated: state.common.isAuthenticated
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -59,84 +62,138 @@ const mapDispatchToProps = dispatch => ({
       type: "GROOMERS",
       payload: services.SearchAmenities.getDetails(zipCode, amenity)
     }),
+  setSearchTerm: term =>
+    dispatch({ type: "SET_SEARCH_ZIPCODE", payload: term }),
   setAmenitySelected: term =>
     dispatch({ type: "SET_AMENITY_SELECTED", payload: term }),
-  setSearchTerm: term => dispatch({ type: "SET_SEARCH_ZIPCODE", payload: term })
+  redirectTo: () => dispatch({ type: "REDIRECT", payload: null })
 });
 
 class AmenitiesSearch extends Component {
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.amenitySelected !== this.props.amenitySelected) {
-      this.props.setAmenitySelected("dog parks");
-    }
-    if (nextProps.redirect) {
-      this.props.history.push(nextProps.redirect);
-      this.props.redirectTo();
-    }
-  }
+  componentWillMount() {
+    console.log(this.props.zipCode);
+    console.log(this.props.amenitySelected);
+    if (this.props.zipCode) {
+      switch (this.props.amenitySelected) {
+        case "events dog":
+          this.props.Events(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "dog parks":
+          this.props.Parks(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "pet stores":
+          this.props.Stores(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "vet clinics":
+          this.props.Vets(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "pet friendly hotels":
+          this.props.Hotels(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "dog groomers":
+          this.props.Groomers(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        default:
+          return true;
+      } //end of switch
+      console.log(this.props.amenities);
+      return true;
+    } //end if
+  } //end of component mount
 
-  // shouldComponentUpdate() {
-  //   if (this.props.zipCode) {
-  //     switch (this.props.amenitySelected) {
-  //       case "events dog":
-  //         this.props.Events(
-  //           this.props.zipCode,
-  //           this.props.amenitySelected,
-  //           this.props.token
-  //         );
-  //         break;
-  //       case "dog parks":
-  //         this.props.Parks(
-  //           this.props.zipCode,
-  //           this.props.amenitySelected,
-  //           this.props.token
-  //         );
-  //         break;
-  //       case "pet stores":
-  //         this.props.Stores(
-  //           this.props.zipCode,
-  //           this.props.amenitySelected,
-  //           this.props.token
-  //         );
-  //         break;
-  //       case "vet clinics":
-  //         this.props.Vets(
-  //           this.props.zipCode,
-  //           this.props.amenitySelected,
-  //           this.props.token
-  //         );
-  //         break;
-  //       case "hotels dog":
-  //         this.props.Hotels(
-  //           this.props.zipCode,
-  //           this.props.amenitySelected,
-  //           this.props.token
-  //         );
-  //         break;
-  //       case "groomers dog":
-  //         this.props.Groomers(
-  //           this.props.zipCode,
-  //           this.props.amenitySelected,
-  //           this.props.token
-  //         );
-  //         break;
-  //       default:
-  //         return true;
-  //     } //end of switch
-  //     return true;
-  //   } //end if
-  // } //end of component mount
+  getUpdatedAmenities() {
+    // fires when component is receiving new props
+    if (this.props.zipCode) {
+      switch (this.props.amenitySelected) {
+        case "events dog":
+          this.props.Events(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "dog parks":
+          this.props.Parks(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "pet stores":
+          this.props.Stores(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "vet clinics":
+          this.props.Vets(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "pet friendly hotels":
+          this.props.Hotels(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        case "dog groomers":
+          this.props.Groomers(
+            this.props.zipCode,
+            this.props.amenitySelected,
+            this.props.token
+          );
+          break;
+        default:
+          return true;
+      } //end of switch
+      console.log(this.props.amenities);
+      return true;
+    } //end if
+  }
 
   amenitySearch = () => {
     console.log(this.props.amenitySelected);
     console.log(this.props.zipCode);
     console.log(this.props.amenities);
-    // this.props.history.push("/Amenities");
+    console.log(this.props);
+    if (this.props.zipCode === "") this.props.setSearchTerm(this.props.zipCode);
+    if (this.props.amenitySelected === "")
+      this.props.setAmenitySelected(this.props.amenitySelected);
+    this.getUpdatedAmenities();
+    this.props.history.push("/Amenities");
   };
 
   render() {
     return (
-      <div id="sidebar">
+      <div id="content">
         <div class="search">
           <InputGroup>
             <FormControl
@@ -151,7 +208,6 @@ class AmenitiesSearch extends Component {
               onKeyPress={event => {
                 if (event.key === "Enter") {
                   this.props.setAmenitySelected(event.target.value);
-                  this.amenitySearch();
                 }
               }}
             />
@@ -210,9 +266,9 @@ class AmenitiesSearch extends Component {
               <input
                 type="radio"
                 name="amenity"
-                value="hotels dog"
+                value="pet friendly hotels"
                 id="hotels"
-                checked={this.props.amenitySelected === "hotels dog"}
+                checked={this.props.amenitySelected === "pet friendly hotels"}
                 onChange={event => {
                   this.props.setAmenitySelected(event.target.value);
                 }}

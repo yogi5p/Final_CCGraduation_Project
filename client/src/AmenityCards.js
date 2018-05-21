@@ -4,15 +4,12 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
 
 const AmenityCards = ({ zipCode, amenities, amenitySelected }) => {
-  console.log(amenities);
-  console.log(zipCode);
-  console.log(amenitySelected);
   return (
-    <Row>
+    <Row class="clearfix">
       {amenities.map((amenity, index) => (
-        <div key={amenity.title}>
-          <Col sm={4} md={3}>
-            <div class="card" style={{ width: "18rem" }}>
+        <div key={amenity.title} style={{ width: "18rem" }}>
+          <Col xs={6} md={4}>
+            <Thumbnail class="clearfix" style={{ width: "18rem" }}>
               {amenity.pagemap.localbusiness ? (
                 amenity.pagemap.localbusiness.length > 0 ? (
                   <img
@@ -25,13 +22,11 @@ const AmenityCards = ({ zipCode, amenities, amenitySelected }) => {
               ) : (
                 <h5>No Image available</h5>
               )}
-              <div class="card_content">
-                <a href={amenity.link} class="btn btn-primary" target="_blank">
-                  <b>{amenity.title}</b>
-                </a>
-                <p>{amenity.snippet}</p>
-              </div>
-            </div>
+              <a href={amenity.link} class="btn btn-primary" target="_blank">
+                <b>{amenity.title}</b>
+              </a>
+              <p>{amenity.snippet}</p>
+            </Thumbnail>
           </Col>
           {(index + 1) % 2 === 0 && <Clearfix visibleSmBlock />}
           {(index + 1) % 3 === 0 && <Clearfix visibleMdBlock visibleLgBlock />}
