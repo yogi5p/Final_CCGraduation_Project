@@ -9,7 +9,8 @@ var usersRouter = require("./routes/users");
 var require = "./models/user";
 var require = "./models/dogs";
 var require = "./db";
-var app = express();
+const app = express();
+
 
 mongoose.connect(
   "mongodb://waggs:password@ds149603.mlab.com:49603/waggs",
@@ -20,6 +21,10 @@ mongoose.connect(
 );
 mongoose.set("debug", true);
 
+//passport init
+app.use(passport.initialize());
+app.use(passport.session());
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -29,6 +34,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+//pages
+app.get("/Signup", (req, res) => {
+  res.render("Signup");
+)};
+
+app.get("/Login", (req, res) => {
+  res.render("Login");
+)};
 
 app.get("/", routes.index);
 app.post("/create", routes.create);
