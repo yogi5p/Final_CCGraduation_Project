@@ -34,14 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-//pages
-app.get("/Signup", (req, res) => {
-  res.render("Signup");
-)};
 
-app.get("/Login", (req, res) => {
-  res.render("Login");
-)};
 
 app.get("/", routes.index);
 app.post("/create", routes.create);
