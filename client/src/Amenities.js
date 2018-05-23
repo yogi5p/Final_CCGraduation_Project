@@ -62,6 +62,8 @@ const mapDispatchToProps = dispatch => ({
   redirectTo: () => dispatch({ type: "REDIRECT", payload: null })
 });
 
+var page_title = "";
+
 class Amenities extends Component {
   componentWillMount() {
     // if (nextProps.amenitySelected !== this.props.amenitySelected)
@@ -125,15 +127,15 @@ class Amenities extends Component {
           <AmenitiesSearch {...this.props} />
         </div>
         <Grid>
-          {console.log("From Amenities " + this.props.amenities)}
-          {this.props.zipCode != "" ? (
-            (
-              <h2>
-                {this.props.amenitySelected} @ {this.props.zipCode}
-              </h2>
-            ) > <hr />
-          ) : (
+          {this.props.amenitySelected === "" ? (
             <hr />
+          ) : this.props.zipCode === "" ? (
+            <hr />
+          ) : (
+            <h2>
+              {" "}
+              {this.props.amenitySelected} @ {this.props.zipCode}
+            </h2>
           )}
           <AmenityCards
             zipCode={this.props.zipCode}

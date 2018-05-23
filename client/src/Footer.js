@@ -54,7 +54,7 @@ class Footer extends Component {
               </a>
             </li>
             <li class="last">
-              <a href="#">
+              <a href="/Amenities">
                 <img
                   src="images/pet-grooming.jpg"
                   width="300"

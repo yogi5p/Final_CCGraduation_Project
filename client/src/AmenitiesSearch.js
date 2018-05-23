@@ -126,7 +126,7 @@ class AmenitiesSearch extends Component {
   } //end of component mount
 
   getUpdatedAmenities() {
-    // fires when component is receiving new props
+    // re-query to get updated results
     if (this.props.zipCode) {
       switch (this.props.amenitySelected) {
         case "events dog":
@@ -188,7 +188,11 @@ class AmenitiesSearch extends Component {
     if (this.props.amenitySelected === "")
       this.props.setAmenitySelected(this.props.amenitySelected);
     this.getUpdatedAmenities();
-    this.props.history.push("/Amenities");
+    this.props.history.push({
+      pathname: "/Amenities",
+      zipCode: this.props.zipCode,
+      amenitySelected: this.props.amenitySelected
+    });
   };
 
   render() {
@@ -211,17 +215,18 @@ class AmenitiesSearch extends Component {
                 }
               }}
             />
+            <button
+              style={{ position: "relative" }}
+              onClick={event => {
+                console.log(event);
+                event.preventDefault();
+                this.props.setAmenitySelected(event.target.value);
+                this.amenitySearch();
+              }}
+            >
+              &nbsp;
+            </button>
           </InputGroup>
-          <Button
-            onClick={event => {
-              console.log(event);
-              event.preventDefault();
-              this.props.setAmenitySelected(event.target.value);
-              this.amenitySearch();
-            }}
-          >
-            &nbsp;
-          </Button>
           <form>
             <label id="parks">
               <input
