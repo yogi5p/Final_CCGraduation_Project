@@ -31,7 +31,6 @@ class NavBar extends Component {
     return (
       <div>
         <div id="header">
-          {" "}
           <a href="#" id="logo">
             <img
               src="images/HauteDoglogo.png"
@@ -41,18 +40,16 @@ class NavBar extends Component {
             />
           </a>
           <ul class="navigation">
-            <li className="active">
+            <li>
               <Link to="/">Home</Link>
-              {/* <a href="index.html">Home</a> */}
             </li>
             <li>
               <Link to="/Amenities">Amenities</Link>
-              {/* <a href="amenities.html">Amenities</a> */}
             </li>
             <li>
               <a href="about.html">About us</a>
             </li>
-            <li>
+            <li class="active">
               <a href="blog.html">Blog</a>
             </li>
             <li>
