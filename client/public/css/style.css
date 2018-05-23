@@ -155,7 +155,7 @@ body {
 }
 /**--------- Start of Blog Page Style **/
 #body #content .content ul.articles {
-  list-tyle-type: none;
+  list-style-type: none;
   margin: 80px 25px 0 0;
   padding: 0;
   background-image: none;
