@@ -23,10 +23,14 @@ import {
 import AmenitiesSearch from "./AmenitiesSearch";
 import Login from "./Login";
 import Signup from "./Signup";
+<<<<<<< HEAD
+// import NavBar from "./NavBar";
+=======
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import HomeContent from "./HomeContent";
 import Amenities from "./Amenities";
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
@@ -54,6 +58,173 @@ class App extends Component {
     }
   }
 
+<<<<<<< HEAD
+  amenitySearch = () => {
+    console.log(this.props.amenitySelected);
+    console.log(this.props.zipCode);
+    console.log(this.props.amenities);
+    this.props.history.push("/AmenitiesSearch");
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <div id="header">
+          {" "}
+          <a href="#" id="logo">
+            <img
+              src="images/HauteDoglogo.png"
+              width="310"
+              height="114"
+              alt=""
+            />
+          </a>
+          <ul class="navigation">
+            <li class="active">
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="amenities.html">Amenities</a>
+            </li>
+            <li>
+              <a href="about.html">About us</a>
+            </li>
+            <li>
+              <a href="blog.html">Blog</a>
+            </li>
+            <li>
+              <a href="petguide.html">PetGuide</a>
+            </li>
+            <li>
+              <a href="contact.html">Contact us</a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="sidebar">
+          <div class="search">
+            <InputGroup>
+              <FormControl
+                name="zipcode"
+                value="ZipCode"
+                className="searchAmenityText"
+                type="input"
+                value={this.props.zipCode}
+                onChange={event => {
+                  this.props.setSearchTerm(event.target.value);
+                }}
+                onKeyPress={event => {
+                  if (event.key === "Enter") {
+                    this.props.setAmenitySelected(event.target.value);
+                    this.amenitySearch();
+                  }
+                }}
+              />
+            </InputGroup>
+            <Button
+              onClick={event => {
+                console.log(event);
+                this.props.setAmenitySelected(event.target.value);
+                this.amenitySearch();
+              }}
+            >
+              &nbsp;
+            </Button>
+            <form>
+              <label id="parks">
+                <input
+                  type="radio"
+                  name="amenity"
+                  value="dog parks"
+                  id="dogparks"
+                  onChange={event => {
+                    this.props.setAmenitySelected(event.target.value);
+                  }}
+                />
+                Dog Parks
+              </label>
+              <label id="stores">
+                <input
+                  type="radio"
+                  name="amenity"
+                  value="pet stores"
+                  id="petstores"
+                  onChange={event => {
+                    this.props.setAmenitySelected(event.target.value);
+                  }}
+                />
+                Pet Stores
+              </label>
+              <label id="vets">
+                <input
+                  type="radio"
+                  name="amenity"
+                  value="vet clinics"
+                  id="vetclinics"
+                  onChange={event => {
+                    this.props.setAmenitySelected(event.target.value);
+                  }}
+                />
+                Vet Clinics
+              </label>
+              <label id="hotels">
+                <input
+                  type="radio"
+                  name="amenity"
+                  value="hotels dog"
+                  id="hotels"
+                  onChange={event => {
+                    this.props.setAmenitySelected(event.target.value);
+                  }}
+                />
+                Hotels
+              </label>
+            </form>
+          </div>
+        </div>
+
+        <div id="footer">
+          <div class="featured">
+            <ul>
+              <li>
+                <a href="#">
+                  <img
+                    src="images/organic-and-chemical-free.jpg"
+                    width="300"
+                    height="90"
+                    alt=""
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="images/good-food.jpg"
+                    width="300"
+                    height="90"
+                    alt=""
+                  />
+                </a>
+              </li>
+              <li class="last">
+                <a href="#">
+                  <img
+                    src="images/pet-grooming.jpg"
+                    width="300"
+                    height="90"
+                    alt=""
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div id="footnote">
+            <div class="section">
+              <a href="/">Waggs Space</a>
+            </div>
+          </div>
+        </div>
+=======
   render() {
     return (
       <div className="App">
@@ -63,10 +234,16 @@ class App extends Component {
           <NavBar />
           <Grid style={{ marginBottom: "215px" }} />
         </Jumbotron>
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
         <Route exact path="/Login" component={Login} />
         <Route path="/Signup" name="Signup" component={Signup} />
         <Route
           exact
+<<<<<<< HEAD
+          path="/AmenitiesSearch"
+          render={props => (
+            <AmenitiesSearch
+=======
           path="/"
           render={props => (
             <HomeContent
@@ -80,6 +257,7 @@ class App extends Component {
           path="/Amenities"
           render={props => (
             <Amenities
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
               {...props}
               zipCode={this.props.zipCode}
               amenitySelected={this.props.amenitySelected}
