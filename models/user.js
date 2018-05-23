@@ -2,32 +2,44 @@ var mongoose = require("mongoose");
 var schema = mongoose.schema;
 var JWT = require("JSONWebToken");
 
+var ObjectId = mongoose.Types.ObjectId;
+var Types = mongoose.Schema.Types;
 var userSchema = new mongoose.Schema({
+  // _id: userSchema.Types.ObjectId,
+  name: String,
   username: {
-    type: string,
+    type: String,
     required: true,
     unique: true
   },
   password: {
-    type: string,
+    type: String,
     required: true
   },
-  emailAddress: [string],
+  emailAddress: [String],
   city: {
-    type: string,
+    type: String,
     required: true
   },
   state: {
-    type: string,
+    type: String,
     required: true
   },
   zipcode: {
-    type: number,
+    type: Number,
     required: true
   },
-  dogs: [objectId],
-  image: [string]
+  image: [String],
+  // dogs: [{ type: userSchema.Types.ObjectId, ref: "dogName" }]
+  dogs: [
+    {
+      type: Types.ObjectId,
+      ref: "dogs"
+    }
+  ]
 });
+
+var User = mongoose.model("User", userSchema);
 
 userSchema.pre("save", function(next) {
   var currentDate = new date();
@@ -36,8 +48,8 @@ userSchema.pre("save", function(next) {
   next();
 });
 
-var user = require();
-var newUser = user({
+// var user = require();
+var newUser = User({
   name: "",
   username: "",
   password: ""
@@ -52,10 +64,10 @@ User.find({}, function(err, users) {
   if (err) throw err;
   console.log(users);
 });
-User.findById(_id, function(err, user) {
-  if (err) throw err;
-  console.log(user);
-});
+// User.findById(_id, function(err, user) {
+//   if (err) throw err;
+//   console.log(user);
+// });
 
 User.find({ username: "" }, function(err, user) {
   if (err) throw err;
@@ -66,10 +78,10 @@ User.find({ username: "" }, function(err, user) {
   });
 });
 
-User.findByIdAndRemove(_id, function(err) {
-  if (err) throw err;
-  console.log("User deleted!");
-});
+// User.findByIdAndRemove(_id, function(err) {
+//   if (err) throw err;
+//   console.log("User deleted!");
+// });
 
 userSchema.methods.toAuthJSON = function() {
   return {
@@ -98,4 +110,5 @@ userSchema.methods.generateJWT = function() {
   exp.setDate(today.getDate() + 60);
 };
 
-mongoose.models("user", userSchema);
+// mongoose.models("user", userSchema);
+module.exports = mongoose.model("User", userSchema);
