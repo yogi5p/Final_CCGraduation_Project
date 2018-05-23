@@ -6,7 +6,7 @@
     "start": "concurrently \"nodemon ./bin/www\" \"cd client && npm start\" "
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap-3-card": "^0.2.0",
     "concurrently": "^3.5.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
