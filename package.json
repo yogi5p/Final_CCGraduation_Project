@@ -6,7 +6,12 @@
     "start": "concurrently \"nodemon ./bin/www\" \"cd client && npm start\" "
   },
   "dependencies": {
+<<<<<<< HEAD
     "bootstrap": "^4.1.1",
+=======
+    "bootstrap": "^3.3.7",
+    "bootstrap-3-card": "^0.2.0",
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
     "concurrently": "^3.5.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
@@ -15,7 +20,11 @@
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.2.1",
     "mongodb": "^3.1.0-beta4",
+<<<<<<< HEAD
     "mongoose": "^5.1.0",
+=======
+    "mongoose": "^5.1.2",
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
     "morgan": "~1.9.0",
     "nodemon": "^1.17.3",
     "react": "^16.3.2",
@@ -25,8 +34,11 @@
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.0"
+<<<<<<< HEAD
   },
   "devDependencies": {
     "cross-env": "^5.1.5"
+=======
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
   }
 }

@@ -23,7 +23,14 @@ import {
 import AmenitiesSearch from "./AmenitiesSearch";
 import Login from "./Login";
 import Signup from "./Signup";
+<<<<<<< HEAD
 // import NavBar from "./NavBar";
+=======
+import NavBar from "./NavBar";
+import Footer from "./Footer";
+import HomeContent from "./HomeContent";
+import Amenities from "./Amenities";
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
@@ -51,6 +58,7 @@ class App extends Component {
     }
   }
 
+<<<<<<< HEAD
   amenitySearch = () => {
     console.log(this.props.amenitySelected);
     console.log(this.props.zipCode);
@@ -216,13 +224,40 @@ class App extends Component {
             </div>
           </div>
         </div>
+=======
+  render() {
+    return (
+      <div className="App">
+        <Jumbotron
+          style={{ marginBottom: "5px", marginTop: "0px", height: "50px" }}
+        >
+          <NavBar />
+          <Grid style={{ marginBottom: "215px" }} />
+        </Jumbotron>
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
         <Route exact path="/Login" component={Login} />
         <Route path="/Signup" name="Signup" component={Signup} />
         <Route
           exact
+<<<<<<< HEAD
           path="/AmenitiesSearch"
           render={props => (
             <AmenitiesSearch
+=======
+          path="/"
+          render={props => (
+            <HomeContent
+              {...props}
+              zipCode={this.props.zipCode}
+              amenitySelected={this.props.amenitySelected}
+            />
+          )}
+        />
+        <Route
+          path="/Amenities"
+          render={props => (
+            <Amenities
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
               {...props}
               zipCode={this.props.zipCode}
               amenitySelected={this.props.amenitySelected}

@@ -43,7 +43,11 @@ export const common = (state = initalState, action) => {
         amenities: action.payload.items,
         inProgress: false
       };
+<<<<<<< HEAD
     case "GROOMING":
+=======
+    case "GROOMERS":
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
       return {
         ...state,
         amenities: action.payload.items,
@@ -53,8 +57,12 @@ export const common = (state = initalState, action) => {
       return {
         ...state,
         amenities: action.payload.items,
+<<<<<<< HEAD
         inProgress: false,
         redirect: "/"
+=======
+        inProgress: false
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
       };
     case "SET_SEARCH_ZIPCODE":
       return {
