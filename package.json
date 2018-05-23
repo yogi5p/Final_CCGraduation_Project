@@ -6,6 +6,7 @@
     "start": "concurrently \"nodemon ./bin/www\" \"cd client && npm start\" "
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "bootstrap-3-card": "^0.2.0",
     "concurrently": "^3.5.1",
     "cookie-parser": "~1.4.3",
@@ -15,7 +16,7 @@
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.2.1",
     "mongodb": "^3.1.0-beta4",
-    "mongoose": "^5.1.0",
+    "mongoose": "^5.1.2",
     "morgan": "~1.9.0",
     "nodemon": "^1.17.3",
     "react": "^16.3.2",
