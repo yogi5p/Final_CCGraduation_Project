@@ -49,8 +49,8 @@ class NavBar extends Component {
             <li>
               <a href="about.html">About us</a>
             </li>
-            <li class="active">
-              <a href="blog.html">Blog</a>
+            <li>
+              <Link to="/Blog">Blog</Link>
             </li>
             <li>
               <a href="petguide.html">PetGuide</a>
