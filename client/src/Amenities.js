@@ -123,20 +123,20 @@ class Amenities extends Component {
   render() {
     return (
       <div>
-        <div style={{ marginTop: "60px" }}>
+        <div style={{ marginTop: "40px" }}>
           <AmenitiesSearch {...this.props} />
         </div>
-        <Grid>
-          {this.props.amenitySelected === "" ? (
-            <hr />
-          ) : this.props.zipCode === "" ? (
-            <hr />
-          ) : (
-            <h2>
-              {" "}
-              {this.props.amenitySelected} @ {this.props.zipCode}
-            </h2>
-          )}
+        {this.props.amenitySelected === "" ? (
+          <hr />
+        ) : this.props.zipCode === "" ? (
+          <hr />
+        ) : (
+          <h2>
+            {" "}
+            {this.props.amenitySelected} @ {this.props.zipCode}
+          </h2>
+        )}
+        <Grid style={{ height: "100%" }}>
           <AmenityCards
             zipCode={this.props.zipCode}
             amenities={this.props.amenities}
