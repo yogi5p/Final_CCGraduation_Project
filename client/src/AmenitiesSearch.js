@@ -1,3 +1,27 @@
+<<<<<<< HEAD
+/*
+1. Input to query for movies
+2. button for onClick to search
+3. Take the input and put in the amenity API URL and do the HTTP fetch
+4. Redirect to the amenities component with the results form that HTTP fetch
+5. Our Details page should still work
+*/
+import React, { Component } from "react";
+import { Col, Grid, Button, Row, Form } from "react-bootstrap";
+import services from "./services";
+import { connect } from "react-redux";
+import AmenityCards from "./AmenityCards";
+
+const mapStateToProps = state => ({
+  amenities: state.common.amenities,
+  favoriteEvents: state.common.favoriteEvents,
+  favoriteParks: state.common.favoriteParks,
+  favoriteStores: state.common.favoriteStores,
+  favoriteVets: state.common.favoriteVets,
+  zipCode: state.common.zipCode,
+  amenitySelected: state.common.amenitySelected,
+  token: state.common.token
+=======
 import React, { Component } from "react";
 import {
   Grid,
@@ -29,6 +53,7 @@ const mapStateToProps = state => ({
   token: state.common.token,
   redirect: state.common.redirect,
   userAuthenticated: state.common.isAuthenticated
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -46,6 +71,61 @@ const mapDispatchToProps = dispatch => ({
     dispatch({
       type: "PARKS",
       payload: services.SearchAmenities.getDetails(zipCode, amenity)
+<<<<<<< HEAD
+    })
+});
+
+class AmenitiesSearch extends Component {
+  // componentWillMount() {
+  //   // if (this.props.zipCode) {
+  //   console.log(this.props.amenitySelected);
+  //   switch (this.props.amenitySelected) {
+  //     case "events":
+  //       this.props.Events(
+  //         this.props.zipCode,
+  //         this.props.amenitySelected,
+  //         this.props.token
+  //       );
+  //       break;
+  //     case "dog parks":
+  //       this.props.Parks(
+  //         this.props.zipCode,
+  //         this.props.amenitySelected,
+  //         this.props.token
+  //       );
+  //       break;
+  //     case "pet stores":
+  //       this.props.Events(
+  //         this.props.zipCode,
+  //         this.props.amenitySelected,
+  //         this.props.token
+  //       );
+  //       break;
+  //     case "vet clinics":
+  //       this.props.Events(
+  //         this.props.zipCode,
+  //         this.props.amenitySelected,
+  //         this.props.token
+  //       );
+  //       break;
+  //     case "hotels dog":
+  //       this.props.Events(
+  //         this.props.zipCode,
+  //         this.props.amenitySelected,
+  //         this.props.token
+  //       );
+  //       break;
+  //     default:
+  //       break;
+  //   } //end of switch
+  //   // } //end if
+  // } //end of component mount
+
+  shouldComponentUpdate() {
+    if (this.props.zipCode) {
+      switch (this.props.amenitySelected) {
+        case "events":
+=======
     }),
   Vets: (zipCode, amenity, token) =>
     dispatch({
@@ -76,6 +156,7 @@ class AmenitiesSearch extends Component {
     if (this.props.zipCode) {
       switch (this.props.amenitySelected) {
         case "events dog":
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
           this.props.Events(
             this.props.zipCode,
             this.props.amenitySelected,
@@ -83,6 +164,10 @@ class AmenitiesSearch extends Component {
           );
           break;
         case "dog parks":
+<<<<<<< HEAD
+          console.log(this.props.amenities);
+=======
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
           this.props.Parks(
             this.props.zipCode,
             this.props.amenitySelected,
@@ -97,12 +182,20 @@ class AmenitiesSearch extends Component {
           );
           break;
         case "vet clinics":
+<<<<<<< HEAD
+          this.props.Events(
+=======
           this.props.Vets(
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
             this.props.zipCode,
             this.props.amenitySelected,
             this.props.token
           );
           break;
+<<<<<<< HEAD
+        case "hotels":
+          this.props.Events(
+=======
         case "pet friendly hotels":
           this.props.Hotels(
             this.props.zipCode,
@@ -112,6 +205,7 @@ class AmenitiesSearch extends Component {
           break;
         case "dog groomers":
           this.props.Groomers(
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
             this.props.zipCode,
             this.props.amenitySelected,
             this.props.token
@@ -120,11 +214,30 @@ class AmenitiesSearch extends Component {
         default:
           return true;
       } //end of switch
+<<<<<<< HEAD
+=======
       console.log(this.props.amenities);
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
       return true;
     } //end if
   } //end of component mount
 
+<<<<<<< HEAD
+  render() {
+    return (
+      <Grid>
+        {this.props.zipCode == "" ? (
+          <h2>My Amenities List</h2> > <hr />
+        ) : (
+          <hr />
+        )}
+        {console.log(this.props.amenities)}
+        <AmenityCards
+          amenities={this.props.amenities}
+          amenitySelected={this.props.amenitySelected}
+        />
+      </Grid>
+=======
   getUpdatedAmenities() {
     // re-query to get updated results
     if (this.props.zipCode) {
@@ -296,6 +409,7 @@ class AmenitiesSearch extends Component {
           </form>
         </div>
       </div>
+>>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
     );
   }
 }
