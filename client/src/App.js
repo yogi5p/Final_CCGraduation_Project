@@ -23,7 +23,11 @@ import {
 import AmenitiesSearch from "./AmenitiesSearch";
 import Login from "./Login";
 import Signup from "./Signup";
-// import NavBar from "./NavBar";
+import NavBar from "./NavBar";
+import Footer from "./Footer";
+import HomeContent from "./HomeContent";
+import Amenities from "./Amenities";
+import Blog from "./Blog";
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
@@ -218,11 +222,22 @@ class App extends Component {
         </div>
         <Route exact path="/Login" component={Login} />
         <Route path="/Signup" name="Signup" component={Signup} />
+        <Route path="/Blog" name="Blog" component={Blog} />
         <Route
           exact
-          path="/AmenitiesSearch"
+          path="/"
           render={props => (
-            <AmenitiesSearch
+            <HomeContent
+              {...props}
+              zipCode={this.props.zipCode}
+              amenitySelected={this.props.amenitySelected}
+            />
+          )}
+        />
+        <Route
+          path="/Amenities"
+          render={props => (
+            <Amenities
               {...props}
               zipCode={this.props.zipCode}
               amenitySelected={this.props.amenitySelected}
