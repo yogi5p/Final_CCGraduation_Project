@@ -3,18 +3,21 @@ body {
   padding: 0;
   background: url("images/bg-body.gif");
   background-repeat: repeat-x;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 #page {
 }
 #header {
   width: 960px;
-  height: 72px;
+  height: 22px;
   position: relative;
   margin: 0 auto;
 }
 #header a#logo {
   position: relative;
-  z-index: 100;
+  z-index: auto;
 }
 #header a#logo img {
   border: 0;
@@ -895,9 +898,12 @@ ul#horizontal-list li {
 #footer {
   background-color: #310000;
   background-image: none;
-  position: relative;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  flex-shrink: 0;
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 #footer .section {
   width: 100%;
@@ -960,6 +966,7 @@ ul#horizontal-list li {
 #footer #footnote {
   background-color: #ffad00;
   width: 100%;
+  flex-shrink: 0;
 }
 #footer #footnote .section {
   height: 50px;
