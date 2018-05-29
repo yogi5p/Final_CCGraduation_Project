@@ -3,14 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "concurrently": "^3.5.1",
     "jquery": "^3.3.1",
     "lightbox2": "^2.10.0",
-=======
-    "bootstrap-3-card": "^0.2.0",
-    "cross-env": "^5.1.4",
->>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4"
@@ -21,12 +16,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-<<<<<<< HEAD
   "proxy": "http://localhost:4100",
   "devDependencies": {
     "cross-env": "^5.1.5"
   }
-=======
-  "proxy": "http://localhost:4100"
->>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
 }
