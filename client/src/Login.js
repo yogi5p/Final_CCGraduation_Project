@@ -93,6 +93,12 @@ class Login extends Component {
             <Button type="submit" disabled={!this.validateForm()}>
               Submit
             </Button>
+            <input
+              type="button"
+              class="loginBtn loginBtn--google"
+              value="Sign in with Google"
+              onclick="location.href = '/login/google'"
+            />
           </Form>
         </Grid>
       </div>

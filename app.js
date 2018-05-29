@@ -6,11 +6,13 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+const authRoutes = require("./routes/auth");
 var require = "./models/user";
 var require = "./models/dogs";
 var require = "./db";
 const app = express();
-
+const passport = require("passport");
+const passport = require("passport-google-oauth");
 
 mongoose.connect(
   "mongodb://waggs:password@ds149603.mlab.com:49603/waggs",
@@ -21,9 +23,13 @@ mongoose.connect(
 );
 mongoose.set("debug", true);
 
+// Initialize Passport
+var initPassport = require("./passport/init");
+initPassport(passport);
 //passport init
 app.use(passport.initialize());
 app.use(passport.session());
+app.use("/auth, authRoutes");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -34,7 +40,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
 
 app.get("/", routes.index);
 app.post("/create", routes.create);

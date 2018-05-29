@@ -89,72 +89,31 @@ class HomeContent extends Component {
     this.props.setAmenitySelected(this.props.amenitySelected);
     this.props.history.push("/Amenities");
   };
-
+  onLogin = () => {
+    this.props.history.push("/Login");
+  };
   render() {
     return (
       <div id="body">
         <div class="banner">&nbsp;</div>
         <div id="content">
-          <div class="content">
-            <ul>
-              <li>
-                {" "}
-                <a href="#">
-                  <img src="images/puppy.jpg" width="114" height="160" alt="" />
-                </a>
-                <h2>What they need</h2>
-                <p>
-                  Mirum est notare quam littera gothica, quam nunc putamus parum
-                  clara m, ant epo suerit li tterar.{" "}
-                  <a class="more" href="#">
-                    View all
-                  </a>
-                </p>
-              </li>
-              <li>
-                {" "}
-                <a href="#">
-                  <img src="images/cat.jpg" width="114" height="160" alt="" />
-                </a>
-                <h2>Something good</h2>
-                <p>
-                  Gothica, quam nun c putamus parum claram, anteposuerit
-                  litterarum formas humani tatis per seacula.{" "}
-                  <a class="more" href="#">
-                    View all
-                  </a>
-                </p>
-              </li>
-              <li>
-                {" "}
-                <a href="#">
-                  <img src="images/koi.jpg" width="114" height="160" alt="" />
-                </a>
-                <h2>Kinds of Fish</h2>
-                <p>
-                  Quam nunc putamus parum claram, antep osuerit litter arum
-                  formas humanitatis per seacula quarta.{" "}
-                  <a class="more" href="#">
-                    View all
-                  </a>
-                </p>
-              </li>
-              <li>
-                {" "}
-                <a href="#">
-                  <img src="images/bird.jpg" width="114" height="160" alt="" />
-                </a>
-                <h2>Fun birds</h2>
-                <p>
-                  Mirum est notare quam littera gothica , quam nunc putamus
-                  parum claram, anteposuerit.{" "}
-                  <a class="more" href="#">
-                    View all
-                  </a>
-                </p>
-              </li>
-            </ul>
-          </div>
+          <ul>
+            <li>
+              {" "}
+              <Button
+                bsStyle="primary"
+                onClick={event => {
+                  console.log(event);
+                  event.preventDefault();
+                  this.onLogin();
+                }}
+              >
+                Login
+              </Button>
+            </li>
+          </ul>
+          <div class="content" />
+
           <div id="sidebar">
             <div class="search">
               <InputGroup>

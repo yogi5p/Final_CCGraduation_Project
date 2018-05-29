@@ -3,11 +3,8 @@ var schema = mongoose.schema;
 var JWT = require("JSONWebToken");
 
 var userSchema = new mongoose.Schema({
-  username: {
-    type: string,
-    required: true,
-    unique: true
-  },
+  username: string,
+  googleId: string, //will identifies returning users
   password: {
     type: string,
     required: true
