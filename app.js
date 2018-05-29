@@ -4,19 +4,11 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-<<<<<<< HEAD
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var require = "./models/user";
-var require = "./models/dogs";
-var require = "./db";
-=======
 require("./models/user");
 require("./models/dogs");
 // require("./db");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
->>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
 var app = express();
 
 mongoose.connect(
@@ -38,12 +30,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-<<<<<<< HEAD
-=======
 app.get("/", routes.index);
 app.post("/create", routes.create);
 
->>>>>>> 9972ff7007d2f6ebbf5061a243e1ec903618efe4
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 

@@ -100,7 +100,11 @@ class Blog extends Component {
     const blogElements = this.state.blogList.map(blogPost => {
       return (
         <li
-          style={{ listStyleType: "square", color: "blue" }}
+          style={{
+            listStyleType: "none",
+            color: "blue",
+            border: "1px solid #ccc"
+          }}
           key={blogPost.id}
           //   onClick={() => this.highlightPerson(blogPost.id)}
         >
@@ -164,15 +168,15 @@ class Blog extends Component {
             Recent Blog Posts
           </h3>
           <Grid>
-            <Row style={{ width: "100%", float: "left" }}>
+            <Row style={{ width: "100%" }}>
               <Col
                 className="col-6 col-md-offset-6"
                 style={{
-                  width: "65%",
+                  width: "75%",
                   float: "center",
-                  marginLeft: "10px",
+                  marginLeft: "20px",
                   borderSpacing: "10px",
-                  outline: "2px solid #0B3D94"
+                  outline: "1px solid #0B3D94"
                 }}
               >
                 <ul>{blogElements}</ul>
