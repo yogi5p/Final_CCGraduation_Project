@@ -43,7 +43,7 @@ export const common = (state = initalState, action) => {
         amenities: action.payload.items,
         inProgress: false
       };
-    case "GROOMERS":
+    case "GROOMING":
       return {
         ...state,
         amenities: action.payload.items,
@@ -53,7 +53,8 @@ export const common = (state = initalState, action) => {
       return {
         ...state,
         amenities: action.payload.items,
-        inProgress: false
+        inProgress: false,
+        redirect: "/"
       };
     case "SET_SEARCH_ZIPCODE":
       return {

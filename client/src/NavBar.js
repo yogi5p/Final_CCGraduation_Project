@@ -34,29 +34,29 @@ class NavBar extends Component {
           <a href="#" id="logo">
             <img
               src="images/HauteDoglogo.png"
-              width="310"
+              width="410"
               height="114"
               alt=""
             />
           </a>
           <ul class="navigation">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/index">Home</Link>
             </li>
             <li>
-              <Link to="/Amenities">Amenities</Link>
+              <Link to="/amenities">Amenities</Link>
             </li>
             <li>
-              <a href="about.html">About us</a>
+              <Link to="/about">About us</Link>
             </li>
             <li>
-              <Link to="/Blog">Blog</Link>
+              <Link to="/blog">Blog</Link>
             </li>
             <li>
-              <a href="petguide.html">PetGuide</a>
+              <Link to="/petgallery">Pet Gallery</Link>
             </li>
             <li>
-              <a href="contact.html">Contact us</a>
+              <Link to="/contact">Contact us</Link>
             </li>
           </ul>
         </div>
