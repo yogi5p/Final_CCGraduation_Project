@@ -28,6 +28,7 @@ import Footer from "./Footer";
 import HomeContent from "./HomeContent";
 import Amenities from "./Amenities";
 import Blog from "./Blog";
+import petgallery from "./petgallery";
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
@@ -65,164 +66,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div id="header">
-          {" "}
-          <a href="#" id="logo">
-            <img
-              src="images/HauteDoglogo.png"
-              width="310"
-              height="114"
-              alt=""
-            />
-          </a>
-          <ul class="navigation">
-            <li class="active">
-              <a href="index.html">Home</a>
-            </li>
-            <li>
-              <a href="amenities.html">Amenities</a>
-            </li>
-            <li>
-              <a href="about.html">About us</a>
-            </li>
-            <li>
-              <a href="blog.html">Blog</a>
-            </li>
-            <li>
-              <a href="petguide.html">PetGuide</a>
-            </li>
-            <li>
-              <a href="contact.html">Contact us</a>
-            </li>
-          </ul>
-        </div>
-
-        <div id="sidebar">
-          <div class="search">
-            <InputGroup>
-              <FormControl
-                name="zipcode"
-                value="ZipCode"
-                className="searchAmenityText"
-                type="input"
-                value={this.props.zipCode}
-                onChange={event => {
-                  this.props.setSearchTerm(event.target.value);
-                }}
-                onKeyPress={event => {
-                  if (event.key === "Enter") {
-                    this.props.setAmenitySelected(event.target.value);
-                    this.amenitySearch();
-                  }
-                }}
-              />
-            </InputGroup>
-            <Button
-              onClick={event => {
-                console.log(event);
-                this.props.setAmenitySelected(event.target.value);
-                this.amenitySearch();
-              }}
-            >
-              &nbsp;
-            </Button>
-            <form>
-              <label id="parks">
-                <input
-                  type="radio"
-                  name="amenity"
-                  value="dog parks"
-                  id="dogparks"
-                  onChange={event => {
-                    this.props.setAmenitySelected(event.target.value);
-                  }}
-                />
-                Dog Parks
-              </label>
-              <label id="stores">
-                <input
-                  type="radio"
-                  name="amenity"
-                  value="pet stores"
-                  id="petstores"
-                  onChange={event => {
-                    this.props.setAmenitySelected(event.target.value);
-                  }}
-                />
-                Pet Stores
-              </label>
-              <label id="vets">
-                <input
-                  type="radio"
-                  name="amenity"
-                  value="vet clinics"
-                  id="vetclinics"
-                  onChange={event => {
-                    this.props.setAmenitySelected(event.target.value);
-                  }}
-                />
-                Vet Clinics
-              </label>
-              <label id="hotels">
-                <input
-                  type="radio"
-                  name="amenity"
-                  value="hotels dog"
-                  id="hotels"
-                  onChange={event => {
-                    this.props.setAmenitySelected(event.target.value);
-                  }}
-                />
-                Hotels
-              </label>
-            </form>
-          </div>
-        </div>
-
-        <div id="footer">
-          <div class="featured">
-            <ul>
-              <li>
-                <a href="#">
-                  <img
-                    src="images/organic-and-chemical-free.jpg"
-                    width="300"
-                    height="90"
-                    alt=""
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img
-                    src="images/good-food.jpg"
-                    width="300"
-                    height="90"
-                    alt=""
-                  />
-                </a>
-              </li>
-              <li class="last">
-                <a href="#">
-                  <img
-                    src="images/pet-grooming.jpg"
-                    width="300"
-                    height="90"
-                    alt=""
-                  />
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div id="footnote">
-            <div class="section">
-              <a href="/">Waggs Space</a>
-            </div>
-          </div>
-        </div>
+        <NavBar />
+        <Grid style={{ marginBottom: "75px" }} />
         <Route exact path="/Login" component={Login} />
         <Route path="/Signup" name="Signup" component={Signup} />
         <Route path="/Blog" name="Blog" component={Blog} />
+        <Route path="/petgallery" name="petgallery" component={petgallery} />
         <Route
           exact
           path="/"
