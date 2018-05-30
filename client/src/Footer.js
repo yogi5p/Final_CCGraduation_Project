@@ -68,7 +68,7 @@ class Footer extends Component {
         </div>
         <div id="footnote" style={{ width: "100%" }}>
           <div class="section">
-            <a href="/">Copyright @2018 Haute Dawg</a>
+            <a href="/">Waggs Space</a>
           </div>
         </div>
       </div>
