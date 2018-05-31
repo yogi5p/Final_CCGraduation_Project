@@ -9,7 +9,18 @@ require("./models/dogs");
 // require("./db");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+
 var app = express();
+
+// Configuring Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Initialize Passport
+var initPassport = require("./passport/init");
+initPassport(passport);
 
 mongoose.connect(
   "mongodb://waggs:password@ds149603.mlab.com:49603/waggs",
@@ -29,6 +40,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.get("/logout", function(req, res) {
+  req.logout();
+  res.redirect("/");
+});
+
+// register Google routes app.js
+app.get("/login/google", passport.authenticate("google"));
+
+app.get(
+  "/login/google/callback",
+  passport.authenticate("google", { failureRedirect: "/login" }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect("/");
+  }
+);
 
 app.get("/", routes.index);
 app.post("/create", routes.create);
