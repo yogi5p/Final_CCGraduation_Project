@@ -5,7 +5,7 @@ var JWT = require("JSONWebToken");
 var ObjectId = mongoose.Types.ObjectId;
 var Types = mongoose.Schema.Types;
 var userSchema = new mongoose.Schema({
-  // _id: userSchema.Types.ObjectId,
+  _id: Types.ObjectId,
   name: String,
   username: {
     type: String,
@@ -30,7 +30,7 @@ var userSchema = new mongoose.Schema({
     required: true
   },
   image: [String],
-  // dogs: [{ type: userSchema.Types.ObjectId, ref: "dogName" }]
+
   dogs: [
     {
       type: Types.ObjectId,
@@ -110,5 +110,4 @@ userSchema.methods.generateJWT = function() {
   exp.setDate(today.getDate() + 60);
 };
 
-// mongoose.models("user", userSchema);
 module.exports = mongoose.model("User", userSchema);
