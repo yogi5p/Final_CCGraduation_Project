@@ -8,6 +8,8 @@ import registerServiceWorker from "./registerServiceWorker";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap-theme.css";
 
 // ReactDOM.render(<App />, document.getElementById("root"));
 // registerServiceWorker();
