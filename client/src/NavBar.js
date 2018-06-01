@@ -50,16 +50,8 @@ class NavBar extends Component {
               {/* <a href="amenities.html">Amenities</a> */}
             </li>
             <li>
-              <a href="about.html">About us</a>
-            </li>
-            <li>
-              <a href="blog.html">Blog</a>
-            </li>
-            <li>
-              <a href="petguide.html">PetGuide</a>
-            </li>
-            <li>
-              <a href="contact.html">Contact us</a>
+              <Link to="/about">About Us</Link>
+              {/* <a href="about.html">About us</a> */}
             </li>
           </ul>
         </div>

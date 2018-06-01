@@ -14,6 +14,7 @@ import {
   FormGroup,
   FormControl,
   InputGroup,
+  ButtonToolbar,
   ControlLabel
 } from "react-bootstrap";
 import { Link, Route, withRouter } from "react-router-dom";
@@ -21,6 +22,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import NavBar from "./NavBar";
 import services from "./services";
 import Footer from "./Footer";
+import Signup from "./Signup";
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
@@ -92,28 +94,31 @@ class HomeContent extends Component {
   onLogin = () => {
     this.props.history.push("/Login");
   };
+  onPress = () => {
+    this.props.history.push("/Signup");
+  };
   render() {
     return (
       <div id="body">
         <div class="banner">&nbsp;</div>
         <div id="content">
-          <ul>
-            <li>
-              {" "}
-              <Button
-                bsStyle="primary"
-                onClick={event => {
-                  console.log(event);
-                  event.preventDefault();
-                  this.onLogin();
-                }}
-              >
-                Login
-              </Button>
-            </li>
-          </ul>
+          {" "}
+          <br />
+          <Link to={"/Signup"}>
+            {/* <img src="/images/sign.jpg" class="center" onClick=onpress()/> */}
+          </Link>
+          <Button
+            bsStyle="primary"
+            onClick={event => {
+              console.log(event);
+              event.preventDefault();
+              this.onLogin();
+            }}
+          >
+            Login
+          </Button>
+          <br />
           <div class="content" />
-
           <div id="sidebar">
             <div class="search">
               <InputGroup>
@@ -212,77 +217,7 @@ class HomeContent extends Component {
                 </label>
               </form>
             </div>
-
-            <div class="section">
-              <ul class="navigation">
-                <li class="active">
-                  <a href="#">Shopping Guides</a>
-                </li>
-                <li>
-                  <a href="#">Discounted Items</a>
-                </li>
-              </ul>
-              <div class="aside">
-                <div>
-                  <div>
-                    <ul>
-                      <li>
-                        <a href="#">Pet Accesories </a>{" "}
-                        <a class="more" href="#">
-                          see all
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">Bath Essentials</a>{" "}
-                        <a class="more" href="#">
-                          see all
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">Pet Food</a>{" "}
-                        <a class="more" href="#">
-                          see all
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">Pet Vitamins</a>{" "}
-                        <a class="more" href="#">
-                          see all
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">Pet Needs</a>{" "}
-                        <a class="more" href="#">
-                          see all
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">Pet Toy and Treats</a>{" "}
-                        <a class="more" href="#">
-                          see all
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">Pet Supplies</a>{" "}
-                        <a class="more" href="#">
-                          see all
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">Pet Emergency Kit</a>{" "}
-                        <a class="more" href="#">
-                          see all
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-        <div id="footer">
-          <Footer />
         </div>
       </div>
     );

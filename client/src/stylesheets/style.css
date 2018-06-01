@@ -4,7 +4,12 @@ body {
   background: url("images/bg-body.gif");
   background-repeat: repeat-x;
 }
-#page {
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-radius: 10%;
 }
 #header {
   width: 960px;

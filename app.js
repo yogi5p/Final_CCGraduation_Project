@@ -30,6 +30,21 @@ initPassport(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/auth, authRoutes");
+//
+let google_auth = passport.authenticate("google", {
+  failureRedirect: "/login"
+});
+
+//Custom Middleware
+
+/* this checks to see passport has deserialized 
+and appended the user to the request */
+const isAuth = (req, res, next) => {
+  console.log("=======Authorization Check");
+  if (req.user) {
+    return next();
+  } else return res.render("login", {});
+};
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -41,6 +56,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// register Google routes index.js
+app.get("/login/google", passport.authenticate("google"));
+
+app.get(
+  "/login/google/callback",
+  passport.authenticate("google", { failureRedirect: "/users" }),
+  function(req, res) {
+    res.redirect("/users");
+  }
+);
 app.get("/", routes.index);
 app.post("/create", routes.create);
 
