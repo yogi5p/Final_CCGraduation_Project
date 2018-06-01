@@ -28,8 +28,8 @@ class Footer extends Component {
 
   render() {
     return (
-      <div class="featured" style={{ width: "100%" }}>
-        <div class="table">
+      <div className="featured" style={{ width: "100%" }}>
+        <div className="table">
           <ul id="horizontal-list">
             <li>
               <a href="#">
@@ -53,7 +53,7 @@ class Footer extends Component {
                 />
               </a>
             </li>
-            <li class="last">
+            <li className="last">
               <a href="/Amenities">
                 <img
                   src="images/pet-grooming.jpg"

@@ -93,9 +93,9 @@ class HomeContent extends Component {
   render() {
     return (
       <div id="body">
-        <div class="banner">&nbsp;</div>
+        <div className="banner">&nbsp;</div>
         <div id="content">
-          <div class="content" />
+          <div className="content" />
           <div id="sidebar">
             <div class="search">
               <InputGroup>

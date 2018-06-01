@@ -18,6 +18,7 @@ import {
 import { Link, Router, Route, withRouter } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import Amenities from "./Amenities";
+import petgallery from "./petgallery";
 
 class NavBar extends Component {
   componentWillReceiveProps(nextProps) {
@@ -39,7 +40,7 @@ class NavBar extends Component {
               alt=""
             />
           </a>
-          <ul class="navigation">
+          <ul className="navigation">
             <li>
               <Link to="/index">Home</Link>
             </li>

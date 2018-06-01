@@ -19,6 +19,7 @@ import {
 import { Link, Route, withRouter } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import services from "./services";
+import lightbox from "./lightbox.js";
 
 import "./stylesheets/style.css";
 
@@ -78,7 +79,7 @@ class petgallery extends Component {
     return (
       <div>
         <div id="content">
-          <div class="content">
+          <div className="content">
             <h2>Haute Dawg Hall of Fame: May Edition</h2>
             <table>
               <div>
