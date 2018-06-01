@@ -28,7 +28,6 @@ import Footer from "./Footer";
 import HomeContent from "./HomeContent";
 import Amenities from "./Amenities";
 import Blog from "./Blog";
-import petgallery from "./petgallery";
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
@@ -56,13 +55,6 @@ class App extends Component {
     }
   }
 
-  amenitySearch = () => {
-    console.log(this.props.amenitySelected);
-    console.log(this.props.zipCode);
-    console.log(this.props.amenities);
-    this.props.history.push("/AmenitiesSearch");
-  };
-
   render() {
     return (
       <div className="App">
@@ -71,7 +63,6 @@ class App extends Component {
         <Route exact path="/Login" component={Login} />
         <Route path="/Signup" name="Signup" component={Signup} />
         <Route path="/Blog" name="Blog" component={Blog} />
-        <Route path="/petgallery" name="petgallery" component={petgallery} />
         <Route
           exact
           path="/"
