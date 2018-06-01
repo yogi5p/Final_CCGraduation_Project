@@ -10,15 +10,20 @@ require("./models/dogs");
 // var blog = require("./models/blog");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var url = "mongodb://waggs:password@ds149603.mlab.com:49603/waggs";
 var app = express();
 
-mongoose.connect(
-  "mongodb://waggs:password@ds149603.mlab.com:49603/waggs",
-  function(err) {
-    if (err) return console.error(err);
-    console.log("THE DB, mongo, is connected, and I ROCK");
-  }
-);
+mongoose.connect(url, function(err, db) {
+  //   if (err) {
+  //     console.log("Unable to connect to the mongoDB server. Error:", err);
+  //   } else {
+  //     console.log("Connection established to", url);
+  //   }
+  // });
+
+  if (err) return console.error(err);
+  console.log("THE DB, mongo, is connected, and I ROCK");
+});
 mongoose.set("debug", true);
 
 // view engine setup
