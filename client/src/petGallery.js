@@ -77,63 +77,58 @@ class petgallery extends Component {
   render() {
     return (
       <div>
+        {console.log("I am in petgallery")}
         <div id="content">
           <div class="content">
             <h2>Haute Dawg Hall of Fame: May Edition</h2>
             <table>
-              <div>
-                <tr>Haute Dawg Hall of Fame: May Edition</tr>
-              </div>
+              <tr>Haute Dawg Hall of Fame: May Edition</tr>
+              <tr>Click on thumbnails below to make image larger.</tr>
+
               <tr>
-                <div>Click on thumbnails below to make image larger.</div>
+                <td>
+                  <a href="images/2.jpg" data-lightbox="dogs">
+                    <img
+                      src="images/2.jpg"
+                      style={{ width: "242px", height: "200px" }}
+                    />
+                  </a>
+
+                  <a href="images/3.jpg" data-lightbox="dogs">
+                    <img
+                      src="images/3.jpg"
+                      style={{ width: "242px", height: "200px" }}
+                    />
+                  </a>
+
+                  <a href="images/4.jpg" data-lightbox="dogs">
+                    <img
+                      src="images/4.jpg"
+                      style={{ width: "242px", height: "200px" }}
+                    />
+                  </a>
+
+                  <a href="images/5.jpg" data-lightbox="dogs">
+                    <img
+                      src="images/5.jpg"
+                      style={{ width: "242px", height: "200px" }}
+                    />
+                  </a>
+                  <a href="images/6.jpg" data-lightbox="dogs">
+                    <img
+                      src="images/6.jpg"
+                      style={{ width: "242px", height: "200px" }}
+                    />
+                  </a>
+
+                  <a href="images/7.jpg" data-lightbox="dogs">
+                    <img
+                      src="images/7.jpg"
+                      style={{ width: "242px", height: "200px" }}
+                    />
+                  </a>
+                </td>
               </tr>
-
-              <div>
-                <tr>
-                  <td>
-                    <a href="images/2.jpg" data-lightbox="dogs">
-                      <img
-                        src="images/2.jpg"
-                        style="width:242px;height:200px;"
-                      />
-                    </a>
-
-                    <a href="images/3.jpg" data-lightbox="dogs">
-                      <img
-                        src="images/3.jpg"
-                        style="width:242px;height:200px;"
-                      />
-                    </a>
-
-                    <a href="images/4.jpg" data-lightbox="dogs">
-                      <img
-                        src="images/4.jpg"
-                        style="width:242px;height:200px;"
-                      />
-                    </a>
-
-                    <a href="images/5.jpg" data-lightbox="dogs">
-                      <img
-                        src="images/5.jpg"
-                        style="width:242px;height:200px;"
-                      />
-                    </a>
-                    <a href="images/6.jpg" data-lightbox="dogs">
-                      <img
-                        src="images/6.jpg"
-                        style="width:242px;height:200px;"
-                      />
-                    </a>
-
-                    <a href="images/7.jpg" data-lightbox="dogs">
-                      <img
-                        src="images/7.jpg"
-                        style="width:242px;height:200px;"
-                      />
-                    </a>
-                  </td>
-                </tr>
-              </div>
             </table>
 
             <div id="footer">
