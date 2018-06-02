@@ -51,10 +51,10 @@ app.get("/logout", function(req, res) {
 });
 
 // register Google routes app.js
-app.get("/login/google", passport.authenticate("google"));
+app.get("/auth/google", passport.authenticate("google"));
 
 app.get(
-  "/login/google/callback",
+  "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
   function(req, res) {
     // Successful authentication, redirect home.

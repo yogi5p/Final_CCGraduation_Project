@@ -1,6 +1,6 @@
 //passport/github.js
 var GoogleStrategy = require("passport-google-oauth20").Strategy;
-var models = require("../models");
+var models = require("/models");
 var googleConfig = require("../googlekeys.js");
 
 module.exports = function(passport) {

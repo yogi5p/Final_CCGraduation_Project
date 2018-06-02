@@ -90,7 +90,7 @@ class HomeContent extends Component {
     this.props.history.push("/Amenities");
   };
   googleLogin = () => {
-    this.props.history.push("/login/google");
+    this.props.history.push("/auth/google");
   };
 
   render() {
@@ -107,10 +107,10 @@ class HomeContent extends Component {
               event.preventDefault();
               this.googleLogin();
             }}
-            // onClick="location.href = '/login/google'"
+            // onClick="location.href = '/auth/google'"
           />
           {/* <Button
-            href="/login/google/callback"
+            href="/auth/google/callback"
             // onClick={event => {
             //   console.log(event);
             //   event.preventDefault();
