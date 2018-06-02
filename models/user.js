@@ -5,7 +5,7 @@ var JWT = require("JSONWebToken");
 var ObjectId = mongoose.Types.ObjectId;
 var Types = mongoose.Schema.Types;
 var userSchema = new mongoose.Schema({
-  // _id: userSchema.Types.ObjectId,
+  _id: Types.ObjectId,
   name: String,
   username: {
     type: String,
@@ -30,7 +30,7 @@ var userSchema = new mongoose.Schema({
     required: true
   },
   image: [String],
-  // dogs: [{ type: userSchema.Types.ObjectId, ref: "dogName" }]
+
   dogs: [
     {
       type: Types.ObjectId,
@@ -42,23 +42,23 @@ var userSchema = new mongoose.Schema({
 var User = mongoose.model("User", userSchema);
 
 userSchema.pre("save", function(next) {
-  var currentDate = new date();
+  var currentDate = new Date();
   this.updated_at = currentDate;
   if (!this.created_at) this.created_at = currentDate;
   next();
 });
 
 // var user = require();
-var newUser = User({
-  name: "",
-  username: "",
-  password: ""
-});
+// var newUser = User({
+//   name: "",
+//   username: "",
+//   password: ""
+// });
 
-newUser.save(function(err) {
-  if (err) throw err;
-  console.log("user created!");
-});
+// newUser.save(function(err) {
+//   if (err) throw err;
+//   console.log("user created!");
+// });
 
 User.find({}, function(err, users) {
   if (err) throw err;
@@ -69,14 +69,14 @@ User.find({}, function(err, users) {
 //   console.log(user);
 // });
 
-User.find({ username: "" }, function(err, user) {
-  if (err) throw err;
-  user.remove(function(err) {
-    if (err) throw err;
+// User.find({ username: "" }, function(err, user) {
+//   if (err) throw err;
+//   User.remove(function(err) {
+//     if (err) throw err;
 
-    console.log("User deleted!");
-  });
-});
+//     console.log("User deleted!");
+//   });
+// });
 
 // User.findByIdAndRemove(_id, function(err) {
 //   if (err) throw err;
@@ -110,5 +110,4 @@ userSchema.methods.generateJWT = function() {
   exp.setDate(today.getDate() + 60);
 };
 
-// mongoose.models("user", userSchema);
 module.exports = mongoose.model("User", userSchema);
