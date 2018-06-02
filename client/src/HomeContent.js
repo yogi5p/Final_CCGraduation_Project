@@ -89,12 +89,38 @@ class HomeContent extends Component {
     this.props.setAmenitySelected(this.props.amenitySelected);
     this.props.history.push("/Amenities");
   };
+  googleLogin = () => {
+    this.props.history.push("/login/google");
+  };
 
   render() {
     return (
       <div id="body">
         <div className="banner">&nbsp;</div>
 
+        <div>
+          <input
+            type="button"
+            class="loginBtn loginBtn--google"
+            value="Sign in with Google"
+            onClick={event => {
+              console.log(event);
+              event.preventDefault();
+              this.googleLogin();
+            }}
+            // onClick="location.href = '/login/google'"
+          />
+          {/* <Button
+            href="/login/google/callback"
+            // onClick={event => {
+            //   console.log(event);
+            //   event.preventDefault();
+            //   this.googleLogin();
+            // }}
+          >
+            Sign In with Google
+          </Button>{" "} */}
+        
         <div id="footer">
           <Footer />
         </div>

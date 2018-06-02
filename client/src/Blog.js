@@ -42,7 +42,7 @@ class Blog extends Component {
   state = {
     username: "Yogi",
     useremail: "yogitap@gmail.com",
-    blogCategory: "",
+    blogCategory: "product",
     blogtext: "",
     blogList: [],
     id: 0
@@ -133,6 +133,7 @@ class Blog extends Component {
                   componentClass="select"
                   value={this.state.blogCategory}
                   onChange={this.handleCategoryChange}
+                  defaultValue={"product"}
                 >
                   <option value="product">Product</option>
                   <option value="medication/vaccines">

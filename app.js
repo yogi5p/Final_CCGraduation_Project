@@ -10,6 +10,7 @@ require("./models/dogs");
 // var blog = require("./models/blog");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+
 var url = "mongodb://waggs:password@ds149603.mlab.com:49603/waggs";
 var app = express();
 
@@ -26,6 +27,19 @@ mongoose.connect(url, function(err, db) {
 });
 mongoose.set("debug", true);
 
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+
+var app = express();
+
+// Configuring Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Initialize Passport
+var initPassport = require("./passport/init");
+initPassport(passport);
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -36,8 +50,30 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+
 // app.get("/", routes.index);
 // app.post("/create", routes.create);
+
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.get("/logout", function(req, res) {
+  req.logout();
+  res.redirect("/");
+});
+
+// register Google routes app.js
+app.get("/login/google", passport.authenticate("google"));
+
+app.get(
+  "/login/google/callback",
+  passport.authenticate("google", { failureRedirect: "/login" }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect("/");
+  }
+);
 
 // app.use("/", indexRouter);
 // app.use("/users", usersRouter);
