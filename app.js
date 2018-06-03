@@ -5,7 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+var users = require("./routes/users");
 const authRoutes = require("./routes/auth");
 var require = "./models/user";
 var require = "./models/dogs";
@@ -15,7 +15,7 @@ const passport = require("passport");
 const passport = require("passport-google-oauth");
 
 mongoose.connect(
-  "mongodb://waggs:password@ds149603.mlab.com:49603/waggs",
+  "mongodb://ljpayton:LJp#su20@ds127589.mlab.com:27589/user",
   function(err) {
     if (err) return console.error(err);
     console.log("THE DB, mongo, is connected, and I ROCK");
@@ -61,16 +61,16 @@ app.get("/login/google", passport.authenticate("google"));
 
 app.get(
   "/login/google/callback",
-  passport.authenticate("google", { failureRedirect: "/users" }),
+  passport.authenticate("google", { failureRedirect: "/" }),
   function(req, res) {
-    res.redirect("/users");
+    res.redirect("/");
   }
 );
 app.get("/", routes.index);
 app.post("/create", routes.create);
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/users", user);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

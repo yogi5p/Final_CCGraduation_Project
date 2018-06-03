@@ -1,21 +1,32 @@
 var mongoose = require("mongoose");
 var schema = mongoose.schema;
 var JWT = require("JSONWebToken");
+var User = require("...models/user");
 
+//register form lp
+router.get("/Signup", function(req, res) {
+  res.render("Signup");
+}); //using proj name
+app.post("/Signup", function(req, res) {
+  const name = req.body.name;
+  const email = req.body.email;
+  const username = req.body.username;
+  const password = req.body.password;
+});
 var userSchema = new mongoose.Schema({
-  username: string,
-  googleId: string, //will identifies returning users
+  username: String,
+  googleId: String, //will identifies returning users
   password: {
-    type: string,
+    type: String,
     required: true
   },
-  emailAddress: [string],
+  emailAddress: [String],
   city: {
-    type: string,
+    type: String,
     required: true
   },
   state: {
-    type: string,
+    type: String,
     required: true
   },
   zipcode: {
@@ -23,7 +34,7 @@ var userSchema = new mongoose.Schema({
     required: true
   },
   dogs: [objectId],
-  image: [string]
+  image: [String]
 });
 
 userSchema.pre("save", function(next) {

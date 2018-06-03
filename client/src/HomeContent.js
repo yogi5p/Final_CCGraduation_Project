@@ -105,7 +105,14 @@ class HomeContent extends Component {
           {" "}
           <br />
           <Link to={"/Signup"}>
-            {/* <img src="/images/sign.jpg" class="center" onClick=onpress()/> */}
+            <img
+              src="/images/sign.jpg"
+              class="center"
+              onPress={event => {
+                event.preventDefault();
+                this.onSignup();
+              }}
+            />
           </Link>
           <Button
             bsStyle="primary"
