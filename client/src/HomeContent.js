@@ -130,9 +130,10 @@ class HomeContent extends Component {
           >
             Sign In with Google
           </Button>{" "} */}
-        
-        <div id="footer">
-          <Footer />
+
+          <div id="footer">
+            <Footer />
+          </div>
         </div>
       </div>
     );
