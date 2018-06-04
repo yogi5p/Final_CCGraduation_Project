@@ -1,6 +1,6 @@
 //init.js in ("./passport")
 var google = require("./google");
-var models = require("../models");
+var models = require("/models");
 
 module.exports = function(passport) {
   // Passport needs to be able to serialize and deserialize users to support persistent login sessions

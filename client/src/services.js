@@ -1,5 +1,7 @@
 const AMENITIES_BASE_URL = `https://www.googleapis.com/customsearch/v1?`;
 
+const API_URL = `https://codercamps-conduit.herokuapp.com/api/`;
+
 const SearchAmenities = {
   getDetails: (zipCode, amenitySelected) => {
     var amenity_serach = amenitySelected.split(" ");
@@ -20,48 +22,38 @@ const SearchAmenities = {
       }
     });
   }
-  // ,
-  //   search: term => {
-  //     const uriEncoded = encodeURIComponent(term);
-  //     return fetch(
-  //       `${MOVIE_BASE_URL}/search/movie?api_key=2434d246ec60c162a86db597467ef4ed&language=en-US&query=${uriEncoded}&include_adult=false&sort_by=created_at.asc&page=1`
-  //     );
-  //   },
-  //   favorite: (movie, userToken) =>
-  //     fetch(API_URL + "movies", {
-  //       method: "POST",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //         Authorization: "Bearer " + userToken
-  //       },
-  //       body: JSON.stringify({
-  //         movie: {
-  //           movie_id: movie.id,
-  //           poster_path: movie.poster_path,
-  //           title: movie.title,
-  //           overview: movie.overview
-  //         }
-  //       })
-  //     }),
-  //   getFavorites: userToken =>
-  //     fetch(API_URL + "movies", {
-  //       method: "GET",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //         Authorization: "Bearer " + userToken
-  //       }
-  //     }),
-  //   delFavorite: (movieId, userToken) =>
-  //     fetch(API_URL + "movie.id", {
-  //       method: "DELETE",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //         Authorization: "Bearer " + userToken
-  //       }
-  //     })
+};
+
+const User = {
+  login: (useremail, password) =>
+    fetch(API_URL + "users/login", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user: {
+          email: useremail,
+          password: password
+        }
+      })
+    }),
+  register: (username, email, password) =>
+    fetch(API_URL + "users", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user: {
+          username: username,
+          email: email,
+          password: password
+        }
+      })
+    })
 };
 
 export default {

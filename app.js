@@ -40,6 +40,21 @@ app.use(passport.session());
 var initPassport = require("./passport/init");
 initPassport(passport);
 
+let google_auth = passport.authenticate("google", {
+  failureRedirect: "/login"
+});
+//Custom Middleware
+
+/* this checks to see passport has deserialized 
+and appended the user to the request */
+const isAuth = (req, res, next) => {
+  console.log("=======Authorization Check");
+  if (req.user) {
+    return next();
+  } else return res.render("login", {});
+};
+
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -64,10 +79,10 @@ app.get("/logout", function(req, res) {
 });
 
 // register Google routes app.js
-app.get("/login/google", passport.authenticate("google"));
+app.get("/auth/google", passport.authenticate("google"));
 
 app.get(
-  "/login/google/callback",
+  "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
   function(req, res) {
     // Successful authentication, redirect home.
