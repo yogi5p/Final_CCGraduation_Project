@@ -11,8 +11,8 @@ var require = "./models/user";
 var require = "./models/dogs";
 var require = "./db";
 const app = express();
-const passport = require("passport");
-const passport = require("passport-google-oauth");
+var passport = require("passport");
+var GoogleStrategy = require("passport-google-oauth").OAuthStrategy;
 
 mongoose.connect(
   "mongodb://ljpayton:LJp#su20@ds127589.mlab.com:27589/user",
@@ -30,21 +30,16 @@ initPassport(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/auth, authRoutes");
-//
-let google_auth = passport.authenticate("google", {
-  failureRedirect: "/login"
-});
-
 //Custom Middleware
 
 /* this checks to see passport has deserialized 
 and appended the user to the request */
-const isAuth = (req, res, next) => {
-  console.log("=======Authorization Check");
-  if (req.user) {
-    return next();
-  } else return res.render("login", {});
-};
+// const isAuth = (req, res, next) => {
+//   console.log("=======Authorization Check");
+//   if (req.user) {
+//     return next();
+//   } else return res.render("login", {});
+// };
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -59,13 +54,13 @@ app.use(express.static(path.join(__dirname, "public")));
 // register Google routes index.js
 app.get("/login/google", passport.authenticate("google"));
 
-app.get(
-  "/login/google/callback",
-  passport.authenticate("google", { failureRedirect: "/" }),
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
-    res.redirect("/");
-  }
-);
+    res.redirect('/');
+  });
+
+
 app.get("/", routes.index);
 app.post("/create", routes.create);
 

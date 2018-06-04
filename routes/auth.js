@@ -18,7 +18,10 @@ router.get("/google", (req, res) => {
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 //top of app.js
 const passportSetup = require("/config/passportsetup.js");
-
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: "https://www.google.com/m8/feeds" })
+);
 //callback route to redirect
 router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
   res.send("Welcome to your Profile");

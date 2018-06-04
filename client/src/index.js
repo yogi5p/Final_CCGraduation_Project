@@ -8,9 +8,6 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 
-// ReactDOM.render(<App />, document.getElementById("root"));
-// registerServiceWorker();
-
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
@@ -19,4 +16,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-registerServiceWorker();
+// registerServiceWorker();

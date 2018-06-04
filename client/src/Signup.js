@@ -47,7 +47,13 @@ class Signup extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.onSubmit(this.state);
+    this.setState({
+      username: "",
+      useremail: "",
+      password: "",
+      confirmpassword: ""
+    });
   };
 
   componentWillReceiveProps() {
@@ -62,7 +68,7 @@ class Signup extends Component {
     return (
       <div class="form">
         <Grid>
-          <Form horizontal onSubmit={e => this.handleSubmit}>
+          <Form>
             <FormGroup>
               <Col sm={10}>
                 <ControlLabel>
@@ -115,7 +121,7 @@ class Signup extends Component {
                 />
               </Col>
             </FormGroup>
-            <Button type="submit" onClick={e => this.onSubmit(e)}>
+            <Button type="submit" onSubmit={e => this.onSubmit(e)}>
               Submit
             </Button>
           </Form>
