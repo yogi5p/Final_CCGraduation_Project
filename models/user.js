@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 var schema = mongoose.schema;
 var JWT = require("JSONWebToken");
+var User = require("...models/user");
 
 var ObjectId = mongoose.Types.ObjectId;
 var Types = mongoose.Schema.Types;
@@ -11,6 +12,9 @@ var userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true
+  },
+ googleId: {
+    type: String
   },
   password: {
     type: String,

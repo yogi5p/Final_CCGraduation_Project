@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
 import "./index.css";
 import "./stylesheets/style.css";
 
@@ -11,9 +12,6 @@ import store from "./store";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
 
-// ReactDOM.render(<App />, document.getElementById("root"));
-// registerServiceWorker();
-
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
@@ -22,4 +20,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-registerServiceWorker();
+// registerServiceWorker();

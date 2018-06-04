@@ -14,6 +14,7 @@ import {
   FormGroup,
   FormControl,
   InputGroup,
+  ButtonToolbar,
   ControlLabel
 } from "react-bootstrap";
 import { Link, Route, withRouter } from "react-router-dom";
@@ -21,6 +22,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import NavBar from "./NavBar";
 import services from "./services";
 import Footer from "./Footer";
+import Signup from "./Signup";
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
