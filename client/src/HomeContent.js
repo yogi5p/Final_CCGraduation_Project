@@ -113,7 +113,7 @@ class HomeContent extends Component {
         <div>
           <input
             type="button"
-            class="loginBtn loginBtn--google"
+            className="loginBtn loginBtn--google"
             value="Sign in with Google"
             onClick={event => {
               console.log(event);
@@ -122,19 +122,10 @@ class HomeContent extends Component {
             }}
             // onClick="location.href = '/auth/google'"
           />
-          {/* <Button
-            href="/auth/google/callback"
-            // onClick={event => {
-            //   console.log(event);
-            //   event.preventDefault();
-            //   this.googleLogin();
-            // }}
-          >
-            Sign In with Google
-          </Button>{" "} */}
-        
-        <div id="footer">
-          <Footer />
+
+          <div id="footer">
+            <Footer />
+          </div>
         </div>
       </div>
     );
