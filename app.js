@@ -22,6 +22,20 @@ app.use(passport.session());
 var initPassport = require("./passport/init");
 initPassport(passport);
 
+let google_auth = passport.authenticate("google", {
+  failureRedirect: "/login"
+});
+//Custom Middleware
+
+/* this checks to see passport has deserialized 
+and appended the user to the request */
+const isAuth = (req, res, next) => {
+  console.log("=======Authorization Check");
+  if (req.user) {
+    return next();
+  } else return res.render("login", {});
+};
+
 mongoose.connect(
   "mongodb://waggs:password@ds149603.mlab.com:49603/waggs",
   function(err) {

@@ -30,10 +30,11 @@ module.exports = function(passport) {
         models.User.findOrCreate({
           where: { googleId: profile.id },
           defaults: {
-            googleId: profile.id,
-            name: profile.displayName,
-            role: "user",
-            email: profile.email
+            googleId: profile.id
+            // ,
+            // name: profile.displayName,
+            // role: "user",
+            // email: profile.email
           }
         })
           .spread((user, newUserCreated) => {
