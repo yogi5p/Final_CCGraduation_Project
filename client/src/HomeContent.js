@@ -106,7 +106,8 @@ class HomeContent extends Component {
   render() {
     return (
       <div id="body">
-        <div class="banner">&nbsp;</div>
+        <div className="banner">&nbsp;</div>
+
         <div>
           <input
             type="button"
@@ -129,109 +130,7 @@ class HomeContent extends Component {
           >
             Sign In with Google
           </Button>{" "} */}
-        </div>
-        <div id="content">
-          <div class="content" />
-          <div id="sidebar">
-            <div class="search">
-              <InputGroup>
-                <FormControl
-                  name="zipcode"
-                  value="ZipCode"
-                  className="searchAmenityText"
-                  type="input"
-                  value={this.props.zipCode}
-                  onChange={event => {
-                    this.props.setSearchTerm(event.target.value);
-                  }}
-                  onKeyPress={event => {
-                    if (event.key === "Enter") {
-                      this.props.setAmenitySelected(event.target.value);
-                      this.amenitySearch();
-                    }
-                  }}
-                />
-              </InputGroup>
-              <Button
-                onClick={event => {
-                  console.log(event);
-                  event.preventDefault();
-                  this.props.setAmenitySelected(event.target.value);
-                  this.amenitySearch();
-                }}
-              >
-                &nbsp;
-              </Button>
-              <form>
-                <label id="parks">
-                  <input
-                    type="radio"
-                    name="amenity"
-                    value="dog parks"
-                    id="dogparks"
-                    checked={this.props.amenitySelected === "dog parks"}
-                    onChange={event => {
-                      this.props.setAmenitySelected(event.target.value);
-                    }}
-                  />
-                  Dog Parks
-                </label>
-                <label id="stores">
-                  <input
-                    type="radio"
-                    name="amenity"
-                    value="pet stores"
-                    id="petstores"
-                    checked={this.props.amenitySelected === "pet stores"}
-                    onChange={event => {
-                      this.props.setAmenitySelected(event.target.value);
-                    }}
-                  />
-                  Pet Stores
-                </label>
-                <label id="vets">
-                  <input
-                    type="radio"
-                    name="amenity"
-                    value="vet clinics"
-                    id="vetclinics"
-                    checked={this.props.amenitySelected === "vet clinics"}
-                    onChange={event => {
-                      this.props.setAmenitySelected(event.target.value);
-                    }}
-                  />
-                  Vet Clinics
-                </label>
-                <label id="hotels">
-                  <input
-                    type="radio"
-                    name="amenity"
-                    value="hotels dog"
-                    id="hotels"
-                    checked={this.props.amenitySelected === "hotels dog"}
-                    onChange={event => {
-                      this.props.setAmenitySelected(event.target.value);
-                    }}
-                  />
-                  Pet Friendly Hotels
-                </label>
-                <label id="groomers">
-                  <input
-                    type="radio"
-                    name="amenity"
-                    value="dog groomers"
-                    id="doggroomers"
-                    checked={this.props.amenitySelected === "dog groomers"}
-                    onChange={event => {
-                      this.props.setAmenitySelected(event.target.value);
-                    }}
-                  />
-                  Dog Groomers
-                </label>
-              </form>
-            </div>
-          </div>
-        </div>
+        
         <div id="footer">
           <Footer />
         </div>
