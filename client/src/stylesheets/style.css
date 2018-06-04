@@ -3,6 +3,9 @@ body {
   padding: 0;
   background: url("images/bg-body.gif");
   background-repeat: repeat-x;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 .center {
   display: block;
@@ -13,21 +16,22 @@ body {
 }
 #header {
   width: 960px;
-  height: 72px;
+  height: 22px;
   position: relative;
   margin: 0 auto;
 }
 #header a#logo {
   position: relative;
-  z-index: 100;
+  z-index: auto;
 }
 #header a#logo img {
   border: 0;
+  vertical-align: top left;
 }
 /**-------------- Navigation style ---------------**/
 #header ul.navigation {
   list-style-type: none;
-  margin: -82px 0 0 300px;
+  margin: -100px 0 0 300px;
   padding: 0;
   overflow: hidden;
 }
@@ -53,7 +57,7 @@ body {
   background-repeat: no-repeat;
   background-position: right;
   height: 35px;
-  padding: 0 20px 0 20px;
+  padding: 0 15px 0 0px;
   text-align: center;
   width: 67px;
 }
@@ -867,8 +871,9 @@ ul#horizontal-list {
   padding-top: 20px;
 }
 ul#horizontal-list li {
-  display: inline;
+  display: inline-flex;
   padding: 15px 0;
+  float: center;
 }
 
 #body .featured ul {
@@ -898,9 +903,12 @@ ul#horizontal-list li {
 #footer {
   background-color: #310000;
   background-image: none;
-  position: relative;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  flex-shrink: 0;
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 #footer .section {
   width: 100%;
@@ -963,6 +971,7 @@ ul#horizontal-list li {
 #footer #footnote {
   background-color: #ffad00;
   width: 100%;
+  flex-shrink: 0;
 }
 #footer #footnote .section {
   height: 50px;
@@ -1002,18 +1011,17 @@ ul#horizontal-list li {
   background-position: center;
   background-repeat: no-repeat;
   width: 640px;
-  height: 175px;
+  height: 150px;
   margin: 0 auto;
-  margin-top: 10px;
 }
 #content .search input {
   background: url("images/input-search2.gif");
   background-position: center;
   background-repeat: no-repeat;
-  width: 420px;
+  width: 320px;
   padding: 8px 5px;
   border: 0;
-  margin: 35px 5px 15px 60px;
+  margin: 30px 5px 5px 30px;
   font-size: 14px;
   font-family: "Myriad Pro";
   color: #7f7154;
@@ -1025,7 +1033,7 @@ ul#horizontal-list li {
   width: 77px;
   height: 30px;
   border: 0;
-  margin: 5px 5px 5px 5px;
+  margin: 30px 5px 5px 5px;
   cursor: pointer;
 }
 #content .search label {
@@ -1040,3 +1048,11 @@ ul#horizontal-list li {
   background: transparent;
 }
 /**----------- End of Search Elements Style ----------**/
+
+/**----------- Start of Amenities Grid Style ----------**/
+
+.amenities {
+  flex: 1 0 auto;
+}
+
+/**----------- End of Amenities Grid Style ----------**/

@@ -17,5 +17,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3030"
+  "proxy": "http://localhost:4100",
+  "devDependencies": {
+    "cross-env": "^5.1.5"
+  }
 }

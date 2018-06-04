@@ -28,46 +28,10 @@ class Footer extends Component {
 
   render() {
     return (
+
       <div class="featured" style={{ width: "100%" }}>
-        <div class="table">
-          <ul id="horizontal-list">
-            <li>
-              <a href="#">
-                <img
-                  src="images/organic-and-chemical-free.jpg"
-                  width="300"
-                  height="90"
-                  alt=""
-                  margin="15px"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="images/good-food.jpg"
-                  width="300"
-                  height="90"
-                  alt=""
-                  margin="15px"
-                />
-              </a>
-            </li>
-            <li class="last">
-              <a href="#">
-                <img
-                  src="images/pet-grooming.jpg"
-                  width="300"
-                  height="90"
-                  alt=""
-                  margin="15px"
-                />
-              </a>
-            </li>
-          </ul>
-        </div>
         <div id="footnote" style={{ width: "100%" }}>
-          <div class="section">
+          <div className="section">
             <a href="/">Copyright @2018 Haute Dawg</a>
           </div>
         </div>

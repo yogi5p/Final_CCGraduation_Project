@@ -1,12 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Index from "./index.css";
-import css from "./stylesheets/style.css";
+
+import "./index.css";
+import "./stylesheets/style.css";
+
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap-theme.css";
 
 ReactDOM.render(
   <Provider store={store}>

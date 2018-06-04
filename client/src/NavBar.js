@@ -18,6 +18,8 @@ import {
 import { Link, Router, Route, withRouter } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import Amenities from "./Amenities";
+import petgallery from "./petgallery";
+import about from "./about";
 
 class NavBar extends Component {
   componentWillReceiveProps(nextProps) {
@@ -31,7 +33,6 @@ class NavBar extends Component {
     return (
       <div>
         <div id="header">
-          {" "}
           <a href="#" id="logo">
             <img
               src="images/HauteDoglogo.png"
@@ -40,18 +41,24 @@ class NavBar extends Component {
               alt=""
             />
           </a>
-          <ul class="navigation">
-            <li className="active">
+          <ul className="navigation">
+            <li>
               <Link to="/">Home</Link>
-              {/* <a href="index.html">Home</a> */}
             </li>
             <li>
               <Link to="/Amenities">Amenities</Link>
-              {/* <a href="amenities.html">Amenities</a> */}
             </li>
             <li>
-              <Link to="/about">About Us</Link>
-              {/* <a href="about.html">About us</a> */}
+               <Link to="/about">About Us</Link>
+            </li>
+            <li>
+              <Link to="/Blog">Blog</Link>
+            </li>
+            <li>
+              <a href="/petgallery">Pet Gallery</a>
+            </li>
+            <li>
+              <a href="contact.html">Contact us</a>
             </li>
           </ul>
         </div>

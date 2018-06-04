@@ -31,7 +31,9 @@ const mapStateToProps = state => ({
   user: state.common.user,
   token: state.common.token,
   redirect: state.common.redirect,
-  userAuthenticated: state.common.isAuthenticated
+  userAuthenticated: state.common.isAuthenticated,
+  useremail: state.common.useremail,
+  password: state.common.password
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -69,7 +71,12 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: "SET_SEARCH_ZIPCODE", payload: term }),
   setAmenitySelected: term =>
     dispatch({ type: "SET_AMENITY_SELECTED", payload: term }),
-  redirectTo: () => dispatch({ type: "REDIRECT", payload: null })
+  redirectTo: () => dispatch({ type: "REDIRECT", payload: null }),
+  login: () =>
+    dispatch({
+      type: "LOGIN",
+      payload: null
+    })
 });
 
 class HomeContent extends Component {
@@ -91,140 +98,43 @@ class HomeContent extends Component {
     this.props.setAmenitySelected(this.props.amenitySelected);
     this.props.history.push("/Amenities");
   };
-  onLogin = () => {
-    this.props.history.push("/Login");
+
+  googleLogin = () => {
+    this.props.login(this.props.useremail, this.props.password);
+
+    // this.props.history.push("/auth/google");
   };
-  onPress = () => {
-    this.props.history.push("/Signup");
-  };
+
   render() {
     return (
       <div id="body">
-        <div class="banner">&nbsp;</div>
-        <div id="content">
-          {" "}
-          <br />
-          <Link to={"/Signup"}>
-            <img
-              src="/images/sign.jpg"
-              class="center"
-              onPress={event => {
-                event.preventDefault();
-                this.onSignup();
-              }}
-            />
-          </Link>
-          <Button
-            bsStyle="primary"
+        <div className="banner">&nbsp;</div>
+
+        <div>
+          <input
+            type="button"
+            class="loginBtn loginBtn--google"
+            value="Sign in with Google"
             onClick={event => {
               console.log(event);
               event.preventDefault();
-              this.onLogin();
+              this.googleLogin();
             }}
+            // onClick="location.href = '/auth/google'"
+          />
+          {/* <Button
+            href="/auth/google/callback"
+            // onClick={event => {
+            //   console.log(event);
+            //   event.preventDefault();
+            //   this.googleLogin();
+            // }}
           >
-            Login
-          </Button>
-          <br />
-          <div class="content" />
-          <div id="sidebar">
-            <div class="search">
-              <InputGroup>
-                <FormControl
-                  name="zipcode"
-                  value="ZipCode"
-                  className="searchAmenityText"
-                  type="input"
-                  value={this.props.zipCode}
-                  onChange={event => {
-                    this.props.setSearchTerm(event.target.value);
-                  }}
-                  onKeyPress={event => {
-                    if (event.key === "Enter") {
-                      this.props.setAmenitySelected(event.target.value);
-                      this.amenitySearch();
-                    }
-                  }}
-                />
-              </InputGroup>
-              <Button
-                onClick={event => {
-                  console.log(event);
-                  event.preventDefault();
-                  this.props.setAmenitySelected(event.target.value);
-                  this.amenitySearch();
-                }}
-              >
-                &nbsp;
-              </Button>
-              <form>
-                <label id="parks">
-                  <input
-                    type="radio"
-                    name="amenity"
-                    value="dog parks"
-                    id="dogparks"
-                    checked={this.props.amenitySelected === "dog parks"}
-                    onChange={event => {
-                      this.props.setAmenitySelected(event.target.value);
-                    }}
-                  />
-                  Dog Parks
-                </label>
-                <label id="stores">
-                  <input
-                    type="radio"
-                    name="amenity"
-                    value="pet stores"
-                    id="petstores"
-                    checked={this.props.amenitySelected === "pet stores"}
-                    onChange={event => {
-                      this.props.setAmenitySelected(event.target.value);
-                    }}
-                  />
-                  Pet Stores
-                </label>
-                <label id="vets">
-                  <input
-                    type="radio"
-                    name="amenity"
-                    value="vet clinics"
-                    id="vetclinics"
-                    checked={this.props.amenitySelected === "vet clinics"}
-                    onChange={event => {
-                      this.props.setAmenitySelected(event.target.value);
-                    }}
-                  />
-                  Vet Clinics
-                </label>
-                <label id="hotels">
-                  <input
-                    type="radio"
-                    name="amenity"
-                    value="hotels dog"
-                    id="hotels"
-                    checked={this.props.amenitySelected === "hotels dog"}
-                    onChange={event => {
-                      this.props.setAmenitySelected(event.target.value);
-                    }}
-                  />
-                  Pet Friendly Hotels
-                </label>
-                <label id="groomers">
-                  <input
-                    type="radio"
-                    name="amenity"
-                    value="dog groomers"
-                    id="doggroomers"
-                    checked={this.props.amenitySelected === "dog groomers"}
-                    onChange={event => {
-                      this.props.setAmenitySelected(event.target.value);
-                    }}
-                  />
-                  Dog Groomers
-                </label>
-              </form>
-            </div>
-          </div>
+            Sign In with Google
+          </Button>{" "} */}
+        
+        <div id="footer">
+          <Footer />
         </div>
       </div>
     );

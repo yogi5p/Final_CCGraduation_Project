@@ -28,6 +28,9 @@ import Footer from "./Footer";
 import HomeContent from "./HomeContent";
 import Amenities from "./Amenities";
 import About from "./about";
+import Blog from "./Blog";
+import petgallery from "./petgallery";
+
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
@@ -63,13 +66,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Jumbotron>
-          <NavBar />
-          <Grid style={{ marginBottom: "215px" }} />
-        </Jumbotron>
+        <NavBar />
+        <Grid style={{ marginBottom: "75px" }} />
         <Route exact path="/Login" component={Login} />
         <Route path="/Signup" name="Signup" component={Signup} />
-        <Route path="/about" name="about" component={About} />
+        <Route path="/Blog" name="Blog" component={Blog} />
+        <Route path="/petgallery" name="Blog" component={petgallery} />
+      <Route path="/about" name="about" component={About} />
+
         <Route
           exact
           path="/"
