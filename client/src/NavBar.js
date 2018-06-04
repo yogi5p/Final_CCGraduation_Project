@@ -19,6 +19,7 @@ import { Link, Router, Route, withRouter } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import Amenities from "./Amenities";
 import petgallery from "./petgallery";
+import about from "./about";
 
 class NavBar extends Component {
   componentWillReceiveProps(nextProps) {
@@ -48,7 +49,7 @@ class NavBar extends Component {
               <Link to="/Amenities">Amenities</Link>
             </li>
             <li>
-              <a href="about.html">About us</a>
+               <Link to="/about">About Us</Link>
             </li>
             <li>
               <Link to="/Blog">Blog</Link>

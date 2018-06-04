@@ -27,8 +27,10 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import HomeContent from "./HomeContent";
 import Amenities from "./Amenities";
+import About from "./about";
 import Blog from "./Blog";
 import petgallery from "./petgallery";
+
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
@@ -55,7 +57,12 @@ class App extends Component {
       this.props.redirectTo();
     }
   }
-
+  state = {
+    fields: {}
+  };
+  onSubmit = fields => {
+    this.setState({ fields });
+  };
   render() {
     return (
       <div className="App">
@@ -65,6 +72,8 @@ class App extends Component {
         <Route path="/Signup" name="Signup" component={Signup} />
         <Route path="/Blog" name="Blog" component={Blog} />
         <Route path="/petgallery" name="Blog" component={petgallery} />
+      <Route path="/about" name="about" component={About} />
+
         <Route
           exact
           path="/"
@@ -86,6 +95,8 @@ class App extends Component {
             />
           )}
         />
+        <Form onSubmit={fields => this.onSubmit(fields)} />
+        <p>{JSON.stringify(this.state.fields, null, 2)}</p>
       </div>
     );
   }

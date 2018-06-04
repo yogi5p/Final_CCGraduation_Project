@@ -43,10 +43,12 @@ initPassport(passport);
 let google_auth = passport.authenticate("google", {
   failureRedirect: "/login"
 });
+
 //Custom Middleware
 
 /* this checks to see passport has deserialized 
 and appended the user to the request */
+
 const isAuth = (req, res, next) => {
   console.log("=======Authorization Check");
   if (req.user) {
@@ -64,7 +66,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
 
 // app.get("/", routes.index);
 // app.post("/create", routes.create);
@@ -92,6 +93,7 @@ app.get(
 
 // app.use("/", indexRouter);
 // app.use("/users", usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
