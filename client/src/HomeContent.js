@@ -29,7 +29,9 @@ const mapStateToProps = state => ({
   user: state.common.user,
   token: state.common.token,
   redirect: state.common.redirect,
-  userAuthenticated: state.common.isAuthenticated
+  userAuthenticated: state.common.isAuthenticated,
+  useremail: state.common.useremail,
+  password: state.common.password
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -67,7 +69,12 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: "SET_SEARCH_ZIPCODE", payload: term }),
   setAmenitySelected: term =>
     dispatch({ type: "SET_AMENITY_SELECTED", payload: term }),
-  redirectTo: () => dispatch({ type: "REDIRECT", payload: null })
+  redirectTo: () => dispatch({ type: "REDIRECT", payload: null }),
+  login: () =>
+    dispatch({
+      type: "LOGIN",
+      payload: null
+    })
 });
 
 class HomeContent extends Component {
@@ -89,8 +96,11 @@ class HomeContent extends Component {
     this.props.setAmenitySelected(this.props.amenitySelected);
     this.props.history.push("/Amenities");
   };
+
   googleLogin = () => {
-    this.props.history.push("/login/google");
+    this.props.login(this.props.useremail, this.props.password);
+
+    // this.props.history.push("/auth/google");
   };
 
   render() {
@@ -108,10 +118,10 @@ class HomeContent extends Component {
               event.preventDefault();
               this.googleLogin();
             }}
-            // onClick="location.href = '/login/google'"
+            // onClick="location.href = '/auth/google'"
           />
           {/* <Button
-            href="/login/google/callback"
+            href="/auth/google/callback"
             // onClick={event => {
             //   console.log(event);
             //   event.preventDefault();

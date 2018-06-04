@@ -1,13 +1,5 @@
 import React, { Component } from "react";
 import {
-  Grid,
-  Navbar,
-  Jumbotron,
-  Nav,
-  Col,
-  Row,
-  NavDropdown,
-  MenuItem,
   NavItem,
   Button,
   Form,
@@ -202,7 +194,6 @@ class AmenitiesSearch extends Component {
           <InputGroup>
             <FormControl
               name="zipcode"
-              value="ZipCode"
               className="searchAmenityText"
               type="input"
               value={this.props.zipCode}

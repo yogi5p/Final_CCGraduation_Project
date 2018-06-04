@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Grid, Row, Col, Thumbnail, Button, Clearfix } from "react-bootstrap";
-import { BrowserRouter as Router } from "react-router-dom";
-import { connect } from "react-redux";
+import React from "react";
+import { Row, Col, Thumbnail, Clearfix } from "react-bootstrap";
+// import { BrowserRouter as Router } from "react-router-dom";
+// import { connect } from "react-redux";
 
 const AmenityCards = ({ zipCode, amenities, amenitySelected }) => {
   return (
