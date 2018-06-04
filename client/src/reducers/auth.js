@@ -4,9 +4,9 @@ const auth = (state = {}, action) => {
     case "REGISTER":
       return {
         ...state,
-        // user: action.payload.user,
-        // isAuthenticated: action.payload.user ? true : false,
-        // errors: action.error ? action.payload.errors : null,
+        user: action.payload.user,
+        isAuthenticated: action.payload.user ? true : false,
+        errors: action.error ? action.payload.errors : null,
         inProgress: false
       };
     default:
