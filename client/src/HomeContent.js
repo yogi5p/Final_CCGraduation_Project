@@ -125,6 +125,7 @@ class HomeContent extends Component {
           <Footer />
         </div>
       </div>
+      </div>
     );
   }
 }
