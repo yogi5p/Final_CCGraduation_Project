@@ -39,7 +39,7 @@ class NavBar extends Component {
               alt=""
             />
           </a>
-          <ul class="navigation">
+          <ul className="navigation">
             <li>
               <Link to="/">Home</Link>
             </li>

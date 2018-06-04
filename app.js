@@ -7,8 +7,26 @@ var mongoose = require("mongoose");
 require("./models/user");
 require("./models/dogs");
 // require("./db");
+// var blog = require("./models/blog");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+
+var url = "mongodb://waggs:password@ds149603.mlab.com:49603/waggs";
+var app = express();
+
+mongoose.connect(url, function(err, db) {
+  //   if (err) {
+  //     console.log("Unable to connect to the mongoDB server. Error:", err);
+  //   } else {
+  //     console.log("Connection established to", url);
+  //   }
+  // });
+
+  if (err) return console.error(err);
+  console.log("THE DB, mongo, is connected, and I ROCK");
+});
+mongoose.set("debug", true);
+
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
@@ -22,15 +40,6 @@ app.use(passport.session());
 var initPassport = require("./passport/init");
 initPassport(passport);
 
-mongoose.connect(
-  "mongodb://waggs:password@ds149603.mlab.com:49603/waggs",
-  function(err) {
-    if (err) return console.error(err);
-    console.log("THE DB, mongo, is connected, and I ROCK");
-  }
-);
-mongoose.set("debug", true);
-
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -40,6 +49,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+
+// app.get("/", routes.index);
+// app.post("/create", routes.create);
 
 app.get("/login", (req, res) => {
   res.render("login");
@@ -62,11 +75,8 @@ app.get(
   }
 );
 
-app.get("/", routes.index);
-app.post("/create", routes.create);
-
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+// app.use("/", indexRouter);
+// app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
