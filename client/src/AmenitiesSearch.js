@@ -1,16 +1,7 @@
 import React, { Component } from "react";
-import {
-  NavItem,
-  Button,
-  Form,
-  FormGroup,
-  FormControl,
-  InputGroup,
-  ControlLabel
-} from "react-bootstrap";
+import { FormControl, InputGroup } from "react-bootstrap";
 import services from "./services";
 import { connect } from "react-redux";
-import AmenityCards from "./AmenityCards";
 import "./stylesheets/style.css";
 
 const mapStateToProps = state => ({
