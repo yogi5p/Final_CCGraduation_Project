@@ -18,7 +18,7 @@ import {
 import { Link, Router, Route, withRouter } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import Amenities from "./Amenities";
-import petgallery from "./petgallery";
+import petGallery from "./petGallery";
 
 class NavBar extends Component {
   componentWillReceiveProps(nextProps) {

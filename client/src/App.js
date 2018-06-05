@@ -28,7 +28,7 @@ import Footer from "./Footer";
 import HomeContent from "./HomeContent";
 import Amenities from "./Amenities";
 import Blog from "./Blog";
-import petgallery from "./petgallery";
+import petGallery from "./petGallery";
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
@@ -64,7 +64,7 @@ class App extends Component {
         <Route exact path="/Login" component={Login} />
         <Route path="/Signup" name="Signup" component={Signup} />
         <Route path="/Blog" name="Blog" component={Blog} />
-        <Route path="/petgallery" name="Blog" component={petgallery} />
+        <Route path="/petGallery" name="Blog" component={petGallery} />
         <Route
           exact
           path="/"

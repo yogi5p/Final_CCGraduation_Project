@@ -19,9 +19,7 @@ mongoose.connect(url, function(err, db) {
 });
 mongoose.set("debug", true);
 
-<<<<<<< HEAD
-=======
-const passport = require("passport");
+const passport = require("./passport/google");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 var app = express();
@@ -48,8 +46,6 @@ const isAuth = (req, res, next) => {
   } else return res.render("login", {});
 };
 
-
->>>>>>> origin/master
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -63,8 +59,6 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.get("/", routes.index);
 // app.post("/create", routes.create);
 
-<<<<<<< HEAD
-=======
 app.get("/login", (req, res) => {
   res.render("login");
 });
@@ -86,7 +80,6 @@ app.get(
   }
 );
 
->>>>>>> origin/master
 // app.use("/", indexRouter);
 // app.use("/users", usersRouter);
 
