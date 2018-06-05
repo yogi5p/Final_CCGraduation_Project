@@ -1,0 +1,22 @@
+.carousel .thumb img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.carousel .slide img {
+  max-height: 240px; /* change this to whatever you want */
+  width: 240px;
+}
+
+.carousel .slide {
+  display: table; /* Allow the centering to work */
+  margin: 0 auto;
+  width: 300%;
+  height: 300%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.item img {
+  visibility: hidden;
+}
