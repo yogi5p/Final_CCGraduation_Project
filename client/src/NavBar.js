@@ -1,29 +1,6 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-import {
-  Grid,
-  Navbar,
-  Jumbotron,
-  Nav,
-  Col,
-  NavDropdown,
-  MenuItem,
-  NavItem,
-  Button,
-  Form,
-  FormGroup,
-  FormControl,
-  InputGroup,
-  ControlLabel
-} from "react-bootstrap";
-import { Link, Router, Route, withRouter } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
-import Amenities from "./Amenities";
-import petGallery from "./petGallery";
-=======
 
 import { Link } from "react-router-dom";
->>>>>>> origin/master
 
 class NavBar extends Component {
   componentWillReceiveProps(nextProps) {

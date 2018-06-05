@@ -12,7 +12,7 @@ import HomeContent from "./HomeContent";
 import Amenities from "./Amenities";
 import About from "./About";
 import Blog from "./Blog";
-import petGallery from "./petGallery";
+import petgallery from "./petgallery";
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
@@ -53,13 +53,9 @@ class App extends Component {
         <Route exact path="/Login" component={Login} />
         <Route path="/Signup" name="Signup" component={Signup} />
         <Route path="/Blog" name="Blog" component={Blog} />
-<<<<<<< HEAD
-        <Route path="/petGallery" name="Blog" component={petGallery} />
-=======
         <Route path="/petgallery" name="petgallery" component={petgallery} />
         <Route path="/About" name="About" component={About} />
 
->>>>>>> origin/master
         <Route
           exact
           path="/"
@@ -88,4 +84,9 @@ class App extends Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);

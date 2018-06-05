@@ -13,13 +13,17 @@ var usersRouter = require("./routes/users");
 var url = "mongodb://waggs:password@ds149603.mlab.com:49603/waggs";
 var app = express();
 
-mongoose.connect(url, function(err, db) {
-  if (err) return console.error(err);
-  console.log("THE DB, mongo, is connected, and I ROCK");
-});
+mongoose.connect(
+  url,
+  function(err, db) {
+    if (err) return console.error(err);
+    console.log("THE DB, mongo, is connected, and I ROCK");
+  }
+);
 mongoose.set("debug", true);
 
-const passport = require("./passport/google");
+// const passport = require("./passport/google");
+const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 var app = express();
@@ -84,7 +88,6 @@ app.get(
 
 // app.use("/", indexRouter);
 // app.use("/users", usersRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

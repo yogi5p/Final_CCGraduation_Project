@@ -104,19 +104,6 @@ class HomeContent extends Component {
             }}
             // onClick="location.href = '/auth/google'"
           />
-<<<<<<< HEAD
-          {/* <Button
-            href="/auth/google/callback"
-            // onClick={event => {
-            //   console.log(event);
-            //   event.preventDefault();
-            //   this.googleLogin();
-            // }}
-          >
-            Sign In with Google
-          </Button>{" "} */}
-=======
->>>>>>> origin/master
 
           <div id="footer">
             <Footer />
@@ -128,5 +115,8 @@ class HomeContent extends Component {
 }
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(HomeContent)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(HomeContent)
 );
