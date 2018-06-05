@@ -1,50 +1,21 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import {
-  Grid,
-  Navbar,
-  Jumbotron,
-  Nav,
-  Col,
-  NavDropdown,
-  MenuItem,
-  NavItem,
-  Button,
-  Form,
-  FormGroup,
-  FormControl,
-  InputGroup,
-  ButtonToolbar,
-  ControlLabel,
-  Row
-} from "react-bootstrap";
-import { Link, Route, withRouter } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
-import NavBar from "./NavBar";
-import services from "./services";
-import Footer from "./Footer";
-import Signup from "./Signup";
+import { Grid, Col, Button, Row } from "react-bootstrap";
 
 class About extends Component {
   render() {
     return (
-      <div className="body">
-        {/* <div id="header"> */}
-        <a href="/" id="logo">
-          <img src="images/logo.gif" width={"310"} height={"114"} />
-        </a>
-        {/* </div> */}
-        {/* <div id="body">
-          <div id="content">
-            <div class="content">
-              <div class="about"> */}
-        <h2 style={"text-align: center"}>About The Company</h2>
-        <p style={"text-align: center"}>
-          {" "}
+      <div style={{ marginTop: "150px" }}>
+        <h2 style={{ textAlign: "center", marginLeft: "75px" }}>
+          About The Company
+        </h2>
+        <p style={{ textAlign: "center", marginLeft: "75px" }}>
           Our goal is to provide fast and convient information about your
-          nearest dog parks, hotels, grooming facilities. In addition, to create
-          a platform for dog lovers to communicate, make play dates, and have a
-          open based discussion on what your four-legged children like best.{" "}
+          nearest dog parks, hotels, grooming facilities.{" "}
+        </p>
+        <p style={{ textAlign: "center", marginLeft: "75px" }}>
+          In addition, to create a platform for dog lovers to communicate, make
+          play dates, and have a open based discussion on what your four-legged
+          children like best.{" "}
         </p>
         <br />
         <Grid>
@@ -53,7 +24,7 @@ class About extends Component {
               <img
                 src="images/Yogi_Profile_Pic.jpg"
                 alt="Yogi_Profile_pic"
-                style={"width:242px;height:200px;"}
+                style={{ width: "242px", height: "200px" }}
               />
               <h3>Yogita Patil</h3>
               <p>
@@ -86,7 +57,7 @@ class About extends Component {
               <img
                 src="images/chelsea.jpg"
                 alt="Yogi_Profile_pic"
-                style={"width:242px;height:250px;"}
+                style={{ width: "242px", height: "250px" }}
               />
               <h3>Chelsea Sanders</h3>
               <p>
@@ -116,11 +87,13 @@ class About extends Component {
                 </Button>
               </p>
             </Col>
+          </Row>
+          <Row>
             <Col xs={6} md={4}>
               <img
                 src="images/lyric.jpg"
                 alt="lyric"
-                style={"width:260px;height:250px;"}
+                style={{ width: "260px", height: "250px" }}
               />
               <h3>Lyric Payton</h3>
               <p>
@@ -154,7 +127,7 @@ class About extends Component {
               <img
                 src="images/david.png"
                 alt="david"
-                style={"width:242px;height:200px;"}
+                style={{ width: "242px", height: "200px" }}
               />
               <h3>David Chatfield</h3>
               <p>
@@ -169,10 +142,10 @@ class About extends Component {
                 enjoy adventures with the family.
               </p>
               <p>
-                <Button bsStyle=" primary ">
+                <Button bsStyle="primary">
                   <a href="https://github.com/Chatfieldd ">Github</a>
                 </Button>&nbsp;
-                <Button bsStyle="default ">
+                <Button bsStyle="default">
                   <a
                     href="mailto:chatfielddc2@cox.net?Subject=I%20Want%20To%20Hire%20YOU "
                     target="_top "

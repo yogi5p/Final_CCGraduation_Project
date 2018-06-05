@@ -6,7 +6,7 @@
 5. Our Details page should still work
 */
 import React, { Component } from "react";
-import { Col, Grid, Button, Row, Form } from "react-bootstrap";
+import { Grid } from "react-bootstrap";
 import services from "./services";
 import { connect } from "react-redux";
 import AmenityCards from "./AmenityCards";
@@ -64,57 +64,52 @@ const mapDispatchToProps = dispatch => ({
 
 class Amenities extends Component {
   componentWillMount() {
-    // if (nextProps.amenitySelected !== this.props.amenitySelected)
-    {
-      console.log(this.props.amenitySelected);
-      switch (this.props.amenitySelected) {
-        case "events dog":
-          this.props.Events(
-            this.props.zipCode,
-            this.props.amenitySelected,
-            this.props.token
-          );
-          break;
-        case "dog parks":
-          this.props.Parks(
-            this.props.zipCode,
-            this.props.amenitySelected,
-            this.props.token
-          );
-          break;
-        case "pet stores":
-          this.props.Stores(
-            this.props.zipCode,
-            this.props.amenitySelected,
-            this.props.token
-          );
-          break;
-        case "vet clinics":
-          this.props.Vets(
-            this.props.zipCode,
-            this.props.amenitySelected,
-            this.props.token
-          );
-          break;
-        case "hotels dog":
-          this.props.Hotels(
-            this.props.zipCode,
-            this.props.amenitySelected,
-            this.props.token
-          );
-          break;
-        case "groomers dog":
-          this.props.Groomers(
-            this.props.zipCode,
-            this.props.amenitySelected,
-            this.props.token
-          );
-          break;
-        default:
-          return true;
-      } //end of switch
-      console.log(this.props.amenities);
-    } //end if
+    switch (this.props.amenitySelected) {
+      case "events dog":
+        this.props.Events(
+          this.props.zipCode,
+          this.props.amenitySelected,
+          this.props.token
+        );
+        break;
+      case "dog parks":
+        this.props.Parks(
+          this.props.zipCode,
+          this.props.amenitySelected,
+          this.props.token
+        );
+        break;
+      case "pet stores":
+        this.props.Stores(
+          this.props.zipCode,
+          this.props.amenitySelected,
+          this.props.token
+        );
+        break;
+      case "vet clinics":
+        this.props.Vets(
+          this.props.zipCode,
+          this.props.amenitySelected,
+          this.props.token
+        );
+        break;
+      case "hotels dog":
+        this.props.Hotels(
+          this.props.zipCode,
+          this.props.amenitySelected,
+          this.props.token
+        );
+        break;
+      case "groomers dog":
+        this.props.Groomers(
+          this.props.zipCode,
+          this.props.amenitySelected,
+          this.props.token
+        );
+        break;
+      default:
+        return true;
+    } //end of switch
     return true;
   } //end of component mount
 
@@ -126,7 +121,7 @@ class Amenities extends Component {
         </div>
         <Grid>
           {console.log("From Amenities " + this.props.amenities)}
-          {this.props.zipCode != "" ? (
+          {this.props.zipCode !== "" ? (
             (
               <h2>
                 {this.props.amenitySelected} @ {this.props.zipCode}
