@@ -1,24 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  Grid,
-  Navbar,
-  Jumbotron,
-  Nav,
-  Col,
-  NavDropdown,
-  MenuItem,
-  NavItem,
-  Button,
-  Form,
-  FormGroup,
-  FormControl,
-  InputGroup,
-  ControlLabel
-} from "react-bootstrap";
-import { Link, Route, withRouter } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
-import NavBar from "./NavBar";
+
+import { withRouter } from "react-router-dom";
+
 import services from "./services";
 import Footer from "./Footer";
 
@@ -111,7 +95,7 @@ class HomeContent extends Component {
         <div>
           <input
             type="button"
-            class="loginBtn loginBtn--google"
+            className="loginBtn loginBtn--google"
             value="Sign in with Google"
             onClick={event => {
               console.log(event);
@@ -120,6 +104,7 @@ class HomeContent extends Component {
             }}
             // onClick="location.href = '/auth/google'"
           />
+<<<<<<< HEAD
           {/* <Button
             href="/auth/google/callback"
             // onClick={event => {
@@ -130,6 +115,8 @@ class HomeContent extends Component {
           >
             Sign In with Google
           </Button>{" "} */}
+=======
+>>>>>>> origin/master
 
           <div id="footer">
             <Footer />

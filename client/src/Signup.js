@@ -1,20 +1,14 @@
 import React, { Component } from "react";
+
 import {
   Grid,
-  Navbar,
-  Jumbotron,
-  Nav,
   Col,
-  NavDropdown,
-  MenuItem,
-  NavItem,
   Button,
   Form,
   FormGroup,
   FormControl,
   ControlLabel
 } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
 import { connect } from "react-redux";
 import services from "./services";
 
@@ -25,7 +19,6 @@ const mapDispatchToProps = dispatch => ({
       payload: services.User.register(username, useremail, password)
     })
 });
-
 class Signup extends Component {
   state = {
     username: "",
@@ -36,7 +29,7 @@ class Signup extends Component {
 
   validateForm() {
     if (this.state.useremail.length > 0 && this.state.password.length > 0)
-      return this.state.confirmpassword == this.state.password;
+      return this.state.confirmpassword === this.state.password;
   }
 
   handleChange = event => {
@@ -45,13 +38,15 @@ class Signup extends Component {
     });
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.props.register(
-      this.state.username,
-      this.state.useremail,
-      this.state.password
-    );
+  onSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.state);
+    this.setState({
+      username: "",
+      useremail: "",
+      password: "",
+      confirmpassword: ""
+    });
   };
 
   componentWillReceiveProps() {
@@ -64,9 +59,9 @@ class Signup extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "white", alignContent: "center" }}>
+      <div class="form">
         <Grid>
-          <Form horizontal onSubmit={this.handleSubmit}>
+          <Form>
             <FormGroup>
               <Col sm={10}>
                 <ControlLabel>
@@ -82,7 +77,7 @@ class Signup extends Component {
                   name="username"
                   placeholder="Enter text"
                   value={this.state.username}
-                  onChange={this.handleChange}
+                  onChange={e => this.handleChange(e)}
                 />
               </Col>
               <Col sm={10}>
@@ -93,7 +88,7 @@ class Signup extends Component {
                   name="useremail"
                   placeholder="Enter email"
                   value={this.state.useremail}
-                  onChange={this.handleChange}
+                  onChange={e => this.handleChange(e)}
                 />
               </Col>
               <Col sm={10}>
@@ -104,7 +99,7 @@ class Signup extends Component {
                   name="password"
                   placeholder="Enter a strong password"
                   value={this.state.password}
-                  onChange={this.handleChange}
+                  onChange={e => this.handleChange(e)}
                 />
               </Col>
               <Col sm={10}>
@@ -115,11 +110,11 @@ class Signup extends Component {
                   name="confirmpassword"
                   placeholder="Confirm password"
                   value={this.state.confirmpassword}
-                  onChange={this.handleChange}
+                  onChange={e => this.handleChange(e)}
                 />
               </Col>
             </FormGroup>
-            <Button type="submit" disable={!this.validateForm()}>
+            <Button type="submit" onSubmit={e => this.onSubmit(e)}>
               Submit
             </Button>
           </Form>

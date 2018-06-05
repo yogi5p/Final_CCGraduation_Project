@@ -16,10 +16,8 @@ import {
   FormControl,
   ControlLabel
 } from "react-bootstrap";
-import services from "./services";
+
 import { connect } from "react-redux";
-import AmenityCards from "./AmenityCards";
-import AmenitiesSearch from "./AmenitiesSearch";
 import "./stylesheets/style.css";
 import Footer from "./Footer";
 
@@ -47,18 +45,7 @@ const mapDispatchToProps = dispatch => ({
   redirectTo: () => dispatch({ type: "REDIRECT", payload: null })
 });
 
-var page_title = "";
-
 class Blog extends Component {
-  // state = {
-  //   username: "Yogi",
-  //   useremail: "yogitap@gmail.com",
-  //   blogCategory: "product",
-  //   blogtext: "",
-  //   blogList: [],
-  //   blogid: 0
-  // };
-
   validateForm() {
     if (this.props.blogtext.length > 0 && this.props.username.length > 0)
       return this.props.blogtext.length > 50;
@@ -66,16 +53,10 @@ class Blog extends Component {
 
   handleChange = event => {
     this.props.setBlogText(event.target.value);
-    // this.setState({
-    //   [event.target.name]: event.target.value
-    // });
   };
 
   handleCategoryChange = event => {
     this.props.setBlogCategory(event.target.value);
-    // this.setState({
-    //   blogCategory: event.target.value
-    // });
   };
 
   setTheBlogInDatabase() {

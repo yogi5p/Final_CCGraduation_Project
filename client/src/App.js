@@ -1,32 +1,16 @@
 import React, { Component } from "react";
-import { Link, Route, withRouter } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
+import { Route, withRouter } from "react-router-dom";
+
 import { connect } from "react-redux";
-import logo from "./logo.svg";
+
 import "./App.css";
-import {
-  Grid,
-  Navbar,
-  Jumbotron,
-  Nav,
-  Col,
-  NavDropdown,
-  MenuItem,
-  NavItem,
-  Button,
-  Form,
-  FormGroup,
-  FormControl,
-  InputGroup,
-  ControlLabel
-} from "react-bootstrap";
-import AmenitiesSearch from "./AmenitiesSearch";
+import { Grid, Form } from "react-bootstrap";
 import Login from "./Login";
 import Signup from "./Signup";
 import NavBar from "./NavBar";
-import Footer from "./Footer";
 import HomeContent from "./HomeContent";
 import Amenities from "./Amenities";
+import About from "./About";
 import Blog from "./Blog";
 import petGallery from "./petGallery";
 
@@ -55,7 +39,12 @@ class App extends Component {
       this.props.redirectTo();
     }
   }
-
+  state = {
+    fields: {}
+  };
+  onSubmit = fields => {
+    this.setState({ fields });
+  };
   render() {
     return (
       <div className="App">
@@ -64,7 +53,13 @@ class App extends Component {
         <Route exact path="/Login" component={Login} />
         <Route path="/Signup" name="Signup" component={Signup} />
         <Route path="/Blog" name="Blog" component={Blog} />
+<<<<<<< HEAD
         <Route path="/petGallery" name="Blog" component={petGallery} />
+=======
+        <Route path="/petgallery" name="petgallery" component={petgallery} />
+        <Route path="/About" name="About" component={About} />
+
+>>>>>>> origin/master
         <Route
           exact
           path="/"
@@ -86,6 +81,8 @@ class App extends Component {
             />
           )}
         />
+        <Form onSubmit={fields => this.onSubmit(fields)} />
+        <p>{JSON.stringify(this.state.fields, null, 2)}</p>
       </div>
     );
   }

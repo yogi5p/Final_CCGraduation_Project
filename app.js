@@ -35,10 +35,12 @@ initPassport(passport);
 let google_auth = passport.authenticate("google", {
   failureRedirect: "/login"
 });
+
 //Custom Middleware
 
 /* this checks to see passport has deserialized 
 and appended the user to the request */
+
 const isAuth = (req, res, next) => {
   console.log("=======Authorization Check");
   if (req.user) {
@@ -82,6 +84,7 @@ app.get(
 
 // app.use("/", indexRouter);
 // app.use("/users", usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

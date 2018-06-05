@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import {
   Grid,
   Navbar,
@@ -19,6 +20,10 @@ import { Link, Router, Route, withRouter } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import Amenities from "./Amenities";
 import petGallery from "./petGallery";
+=======
+
+import { Link } from "react-router-dom";
+>>>>>>> origin/master
 
 class NavBar extends Component {
   componentWillReceiveProps(nextProps) {
@@ -32,7 +37,7 @@ class NavBar extends Component {
     return (
       <div>
         <div id="header">
-          <a href="#" id="logo">
+          <a href="/" id="logo">
             <img
               src="images/HauteDoglogo.png"
               width="310"
@@ -48,13 +53,13 @@ class NavBar extends Component {
               <Link to="/Amenities">Amenities</Link>
             </li>
             <li>
-              <a href="about.html">About us</a>
+              <Link to="/About">About</Link>
             </li>
             <li>
               <Link to="/Blog">Blog</Link>
             </li>
             <li>
-              <a href="/petgallery">Pet Gallery</a>
+              <Link to="/petgallery">Pet_Gallery</Link>
             </li>
             <li>
               <a href="contact.html">Contact us</a>
