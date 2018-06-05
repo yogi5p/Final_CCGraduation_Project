@@ -16,10 +16,8 @@ import {
   FormControl,
   ControlLabel
 } from "react-bootstrap";
-import services from "./services";
+
 import { connect } from "react-redux";
-import AmenityCards from "./AmenityCards";
-import AmenitiesSearch from "./AmenitiesSearch";
 import "./stylesheets/style.css";
 import Footer from "./Footer";
 
@@ -46,8 +44,6 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: "SET_BLOG_IN_DATABASE", payload: term }),
   redirectTo: () => dispatch({ type: "REDIRECT", payload: null })
 });
-
-var page_title = "";
 
 class Blog extends Component {
   validateForm() {

@@ -2,20 +2,13 @@ import React, { Component } from "react";
 
 import {
   Grid,
-  Navbar,
-  Jumbotron,
-  Nav,
   Col,
-  NavDropdown,
-  MenuItem,
-  NavItem,
   Button,
   Form,
   FormGroup,
   FormControl,
   ControlLabel
 } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
 import { connect } from "react-redux";
 import services from "./services";
 
