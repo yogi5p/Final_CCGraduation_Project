@@ -17,7 +17,7 @@ class NavBar extends Component {
           <a href="/" id="logo">
             <img
               src="images/HauteDoglogo.png"
-              width="310"
+              width="300"
               height="114"
               alt=""
             />
@@ -36,10 +36,7 @@ class NavBar extends Component {
               <Link to="/Blog">Blog</Link>
             </li>
             <li>
-              <Link to="/petgallery">Pet_Gallery</Link>
-            </li>
-            <li>
-              <a href="contact.html">Contact us</a>
+              <Link to="/petgallery">PetGallery</Link>
             </li>
           </ul>
         </div>
