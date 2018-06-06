@@ -63,8 +63,12 @@ const mapDispatchToProps = dispatch => ({
 class petgallery extends Component {
   render() {
     return (
-      <div style={{ marginTop: "150px" }}>
+      <div style={{ marginTop: "100px" }}>
         <h2 style={{ textAlign: "center", marginLeft: "75px" }} />
+        <h1 style={{ textAlign: "center", marginLeft: "75px" }}>June: </h1>
+        <h2 style={{ textAlign: "center", marginLeft: "75px" }}>
+          Waggies of the month{""}
+        </h2>
         <Grid>
           <Col>
             <Carousel />
