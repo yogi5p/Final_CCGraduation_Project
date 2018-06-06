@@ -6,31 +6,30 @@ var modelName = "dogs";
 var Types = mongoose.Schema.Types;
 
 var dogSchema = new mongoose.Schema({
-  name: String,
   dogName: {
     type: String,
     required: true,
     unique: true
   },
   gender: {
-    type: Boolean,
-    enum: ["Male", "Female"]
+    type: String,
+    required: true
   },
   breed: {
     type: String,
     required: true
   },
   size: {
-    type: Boolean,
-    enum: ["Small", "Medium", "Large"]
+    type: String,
+    required: true
   },
   spayedAndNeutered: {
-    type: Boolean,
-    enum: ["Yes", "No"]
+    type: String,
+    required: true
   },
   currentVaccination: {
-    type: Boolean,
-    enum: ["Yes", "No"]
+    type: String,
+    required: true
   },
   image: [String],
   owner: {
@@ -39,12 +38,30 @@ var dogSchema = new mongoose.Schema({
   }
 });
 
-dogSchema.pre("save", function(next) {
-  var currentDate = new Date();
-  this.updated_at = currentDate;
-  if (!this.created_at) this.created_at = currentDate;
-  next();
-});
+var Dogs = mongoose.model("Dogs", dogSchema);
+
+// var Dogs = new Dogs({
+//   dogName: "",
+//   gender: "",
+//   breed: "",
+//   size: "",
+//   spayedAndNeutered: "",
+//   currentVaccination: ""
+// });
+
+// Dogs.save(function(err) {
+//   console.log("dog created!");
+//   if (err) {
+//     console.error(err);
+//   }
+// });
+
+// dogSchema.pre("save", function(next) {
+//   var currentDate = new Date();
+//   this.updated_at = currentDate;
+//   if (!this.created_at) this.created_at = currentDate;
+//   next();
+// });
 
 // dogs.find({ dogName: "" }, function(err, dogs) {
 //   if (err) throw err;

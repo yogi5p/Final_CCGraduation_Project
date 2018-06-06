@@ -6,7 +6,6 @@ var User = require("../models/user");
 var ObjectId = mongoose.Types.ObjectId;
 var Types = mongoose.Schema.Types;
 var userSchema = new mongoose.Schema({
-  _id: Types.ObjectId,
   name: String,
   username: {
     type: String,
@@ -45,29 +44,27 @@ var userSchema = new mongoose.Schema({
 
 var User = mongoose.model("User", userSchema);
 
-userSchema.pre("save", function(next) {
-  var currentDate = new Date();
-  this.updated_at = currentDate;
-  if (!this.created_at) this.created_at = currentDate;
-  next();
-});
-
-// var user = require();
-// var newUser = User({
+// var User = new User({
 //   name: "",
 //   username: "",
-//   password: ""
+//   password: "",
+//   emailAddress: "",
+//   city: "",
+//   state: "",
+//   zipcode: ""
 // });
 
-// newUser.save(function(err) {
-//   if (err) throw err;
+// User.save(function(err) {
 //   console.log("user created!");
+//   if (err) {
+//     console.error(err);
+//   }
 // });
 
-User.find({}, function(err, users) {
-  if (err) throw err;
-  console.log(users);
-});
+// User.find({}, function(err, users) {
+//   if (err) throw err;
+//   console.log(users);
+// });
 // User.findById(_id, function(err, user) {
 //   if (err) throw err;
 //   console.log(user);
