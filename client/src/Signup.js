@@ -47,6 +47,7 @@ class Signup extends Component {
 
   onSubmit = e => {
     e.preventDefault();
+    console.log(this.state);
     this.props.onSubmit(this.state);
     this.setState({
       username: "",
@@ -68,7 +69,7 @@ class Signup extends Component {
     return (
       <div class="form">
         <Grid>
-          <Form>
+          <Form onSubmit={this.onSubmit}>
             <FormGroup>
               <Col sm={10}>
                 <ControlLabel>
@@ -121,9 +122,7 @@ class Signup extends Component {
                 />
               </Col>
             </FormGroup>
-            <Button type="submit" onSubmit={e => this.onSubmit(e)}>
-              Submit
-            </Button>
+            <button type="submit">Submit</button>
           </Form>
         </Grid>
       </div>
@@ -131,4 +130,7 @@ class Signup extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect(
+  null,
+  mapDispatchToProps
+)(Signup);
