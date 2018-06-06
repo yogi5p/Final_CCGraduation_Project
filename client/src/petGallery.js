@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, Route, withRouter } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
+import { withRouter } from "react-router-dom";
+import { Col, Grid, Row } from "react-bootstrap";
+
 import services from "./services";
 import "./stylesheets/style.css";
 import ReactDOM from "react-dom";
@@ -62,9 +63,16 @@ const mapDispatchToProps = dispatch => ({
 class petgallery extends Component {
   render() {
     return (
-      <div>
-        <div>
-          <Carousel />
+      <div style={{ marginTop: "150px" }}>
+        <h2 style={{ textAlign: "center", marginLeft: "75px" }} />
+        <Grid>
+          <Col>
+            <Carousel />
+          </Col>
+        </Grid>
+
+        <div id="footer">
+          <Footer />
         </div>
       </div>
     );
@@ -72,5 +80,8 @@ class petgallery extends Component {
 }
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(petgallery)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(petgallery)
 );

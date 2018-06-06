@@ -1,20 +1,13 @@
 import React, { Component } from "react";
 import {
   Grid,
-  Navbar,
-  Jumbotron,
-  Nav,
   Col,
-  NavDropdown,
-  MenuItem,
-  NavItem,
   Button,
   Form,
   FormGroup,
   FormControl,
   ControlLabel
 } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
 import { connect } from "react-redux";
 import services from "./services";
 
@@ -55,7 +48,9 @@ class Login extends Component {
   componentDidMount() {
     // fires immediately before the initial render
   }
-
+  onLogin = () => {
+    this.props.history.push("/login/google");
+  };
   render() {
     return (
       <div style={{ backgroundColor: "white", alignContent: "center" }}>
@@ -91,8 +86,14 @@ class Login extends Component {
               </Col>
             </FormGroup>
             <Button type="submit" disabled={!this.validateForm()}>
-              Submit
+              Login
             </Button>
+            <input
+              type="button"
+              class="Btn loginBtn"
+              value="Sign in with Google"
+              onClick={this.onLogin()}
+            />
           </Form>
         </Grid>
       </div>

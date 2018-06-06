@@ -1,24 +1,7 @@
 import React, { Component } from "react";
-import {
-  Grid,
-  Navbar,
-  Jumbotron,
-  Nav,
-  Col,
-  Row,
-  NavDropdown,
-  MenuItem,
-  NavItem,
-  Button,
-  Form,
-  FormGroup,
-  FormControl,
-  InputGroup,
-  ControlLabel
-} from "react-bootstrap";
+import { FormControl, InputGroup } from "react-bootstrap";
 import services from "./services";
 import { connect } from "react-redux";
-import AmenityCards from "./AmenityCards";
 import "./stylesheets/style.css";
 
 const mapStateToProps = state => ({
@@ -202,7 +185,6 @@ class AmenitiesSearch extends Component {
           <InputGroup>
             <FormControl
               name="zipcode"
-              value="ZipCode"
               className="searchAmenityText"
               type="input"
               value={this.props.zipCode}

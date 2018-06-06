@@ -16,10 +16,8 @@ import {
   FormControl,
   ControlLabel
 } from "react-bootstrap";
-import services from "./services";
+
 import { connect } from "react-redux";
-import AmenityCards from "./AmenityCards";
-import AmenitiesSearch from "./AmenitiesSearch";
 import "./stylesheets/style.css";
 import Footer from "./Footer";
 
@@ -27,77 +25,65 @@ const mapStateToProps = state => ({
   user: state.common.user,
   token: state.common.token,
   redirect: state.common.redirect,
-  userAuthenticated: state.common.isAuthenticated
+  userAuthenticated: state.common.isAuthenticated,
+  username: state.common.username,
+  useremail: state.common.useremail,
+  blogCategory: state.common.blogCategory,
+  blogtext: state.common.blogtext,
+  blogList: state.common.blogList,
+  blogid: state.common.blogid
 });
 
 const mapDispatchToProps = dispatch => ({
+  setBlogCategory: term =>
+    dispatch({ type: "SET_BLOG_CATEGORY", payload: term }),
+  setBlogText: term => dispatch({ type: "SET_BLOG_TEXT", payload: term }),
+  resetBlogArrayValues: term =>
+    dispatch({ type: "RESET_BLOG_ARRAY_VALUES", payload: term }),
   setBlogInDatabase: term =>
     dispatch({ type: "SET_BLOG_IN_DATABASE", payload: term }),
   redirectTo: () => dispatch({ type: "REDIRECT", payload: null })
 });
 
-var page_title = "";
-
 class Blog extends Component {
-  state = {
-    username: "Yogi",
-    useremail: "yogitap@gmail.com",
-    blogCategory: "",
-    blogtext: "",
-    blogList: [],
-    id: 0
-  };
-
   validateForm() {
-    if (this.state.blogtext.length > 0 && this.state.username.length > 0)
-      return this.state.blogtext.length > 50;
+    if (this.props.blogtext.length > 0 && this.props.username.length > 0)
+      return this.props.blogtext.length > 50;
   }
 
   handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
+    this.props.setBlogText(event.target.value);
   };
 
   handleCategoryChange = event => {
-    this.setState({
-      blogCategory: event.target.value
-    });
+    this.props.setBlogCategory(event.target.value);
   };
 
   setTheBlogInDatabase() {
     this.props.setBlogInDatabase(
-      this.state.username,
-      this.state.useremail,
-      this.state.blogCategory,
-      this.state.blogtext
+      this.props.username,
+      this.props.useremail,
+      this.props.blogCategory,
+      this.props.blogtext
     );
   }
 
   handleSubmit = event => {
     event.preventDefault();
-    //add to an array
-    this.setState({
-      blogList: [
-        ...this.state.blogList,
-        {
-          username: this.state.username,
-          useremail: this.state.useremail,
-          blogtext: this.state.blogtext,
-          blogCategory: this.state.blogCategory,
-          id: this.state.id + 1
-        }
-      ],
-      username: "",
-      useremail: "",
-      blogtext: "",
-      blogCategory: "",
-      id: this.state.id + 1
+    //add to blogs array
+    this.props.blogList.push({
+      username: this.props.username,
+      useremail: this.props.useremail,
+      blogtext: this.props.blogtext,
+      blogCategory: this.props.blogCategory,
+      blogid: this.props.blogid + 1
     });
+
+    this.props.resetBlogArrayValues(this.props.blogid);
   };
 
   render() {
-    const blogElements = this.state.blogList.map(blogPost => {
+    const blogElements = this.props.blogList.map(blogPost => {
       return (
         <li
           style={{
@@ -105,7 +91,7 @@ class Blog extends Component {
             color: "blue",
             border: "1px solid #ccc"
           }}
-          key={blogPost.id}
+          key={blogPost.blogid}
           //   onClick={() => this.highlightPerson(blogPost.id)}
         >
           <b>Name: </b>
@@ -131,8 +117,9 @@ class Blog extends Component {
                 <ControlLabel>Category:</ControlLabel>
                 <FormControl
                   componentClass="select"
-                  value={this.state.blogCategory}
+                  value={this.props.blogCategory}
                   onChange={this.handleCategoryChange}
+                  defaultValue={"product"}
                 >
                   <option value="product">Product</option>
                   <option value="medication/vaccines">
@@ -150,7 +137,7 @@ class Blog extends Component {
                   id="blogtext"
                   name="blogtext"
                   placeholder="Enter text"
-                  value={this.state.blogtext}
+                  value={this.props.blogtext}
                   onChange={this.handleChange}
                 />
               </Col>

@@ -2,9 +2,16 @@ const initalState = {
   amenities: [],
   zipCode: "",
   amenitySelected: "",
-  //userAuthenticated: false,
+  userAuthenticated: false,
   user: null,
-  token: null
+  token: null,
+  username: "Yogi",
+  useremail: "yogitap@gmail.com",
+  password: "",
+  blogCategory: "product",
+  blogtext: "",
+  blogList: [],
+  blogid: 0
 };
 
 export const common = (state = initalState, action) => {
@@ -15,9 +22,9 @@ export const common = (state = initalState, action) => {
         ...state,
         user: action.payload.user,
         token: action.payload.user.token,
-        isAuthenticated: action.payload.user ? true : false,
+        userAuthenticated: action.payload.user ? true : false,
         inProgress: false,
-        redirect: "/"
+        redirect: "/Amenities"
       };
     case "EVENTS":
       return {
@@ -64,6 +71,23 @@ export const common = (state = initalState, action) => {
       return {
         ...state,
         amenitySelected: action.payload
+      };
+    case "SET_BLOG_CATEGORY":
+      return {
+        ...state,
+        blogCategory: action.payload
+      };
+    case "SET_BLOG_TEXT":
+      return {
+        ...state,
+        blogtext: action.payload
+      };
+    case "RESET_BLOG_ARRAY_VALUES":
+      return {
+        ...state,
+        blogtext: "",
+        blogCategory: "product",
+        blogid: action.payload + 1
       };
     case "ASYNC_START":
       return {
