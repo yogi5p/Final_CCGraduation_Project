@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var schema = mongoose.schema;
 var JWT = require("JSONWebToken");
 
-//var ObjectId = mongoose.Types.ObjectId;
+
 var Types = mongoose.Schema.Types;
 var userSchema = new mongoose.Schema({
   name: String,
