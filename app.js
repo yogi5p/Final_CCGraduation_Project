@@ -9,20 +9,11 @@ var User = require("./models/user");
 var url = "mongodb://waggs:password@ds149603.mlab.com:49603/waggs";
 var app = express();
 
-mongoose.connect(
-  url,
-  function(err, db) {
-    //   if (err) {
-    //     console.log("Unable to connect to the mongoDB server. Error:", err);
-    //   } else {
-    //     console.log("Connection established to", url);
-    //   }
-    // });
+mongoose.connect(url, function(err, db) {
+  if (err) return console.error(err);
+  console.log("THE DB, mongo, is connected, and I ROCK");
+});
 
-    if (err) return console.error(err);
-    console.log("THE DB, mongo, is connected, and I ROCK");
-  }
-);
 mongoose.set("debug", true);
 
 const passport = require("passport");

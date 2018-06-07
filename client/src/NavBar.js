@@ -17,7 +17,7 @@ class NavBar extends Component {
           <a href="/" id="logo">
             <img
               src="images/HauteDoglogo.png"
-              width="310"
+              width="300"
               height="114"
               alt=""
             />
