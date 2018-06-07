@@ -78,10 +78,15 @@ class App extends Component {
           )}
         />
         <Form onSubmit={fields => this.onSubmit(fields)} />
-        <p>{JSON.stringify(this.state.fields, null, 2)}</p>
+        {/* <p>{JSON.stringify(this.state.fields, null, 2)}</p> */}
       </div>
     );
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);

@@ -1,37 +1,31 @@
 var mongoose = require("mongoose");
 var schema = mongoose.schema;
 var JWT = require("JSONWebToken");
-var User = require("...models/user");
 
-var ObjectId = mongoose.Types.ObjectId;
+//var ObjectId = mongoose.Types.ObjectId;
 var Types = mongoose.Schema.Types;
 var userSchema = new mongoose.Schema({
-  _id: Types.ObjectId,
   name: String,
   username: {
     type: String,
     required: true,
     unique: true
   },
- googleId: {
+  googleId: {
     type: String
   },
   password: {
-    type: String,
-    required: true
+    type: String
   },
   emailAddress: [String],
   city: {
-    type: String,
-    required: true
+    type: String
   },
   state: {
-    type: String,
-    required: true
+    type: String
   },
   zipcode: {
-    type: Number,
-    required: true
+    type: Number
   },
   image: [String],
 
@@ -99,7 +93,7 @@ userSchema.methods.toAuthJSON = function() {
 
 userSchema.pre("save", function(next) {
   var user = this;
-  if (!user.ismodified("password")) return next();
+  if (!user.isModified("password")) return next();
   this.salt = crypto.randomBytes(16).toString("hex");
   this.hash = crypto
     .pbkdf2Sync(password, this.salt, 10000, 512, "sha512")
