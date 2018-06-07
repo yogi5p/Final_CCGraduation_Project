@@ -79,16 +79,16 @@ class HomeContent extends Component {
 
         <div>
           <a href="/auth/google">
-            {/* <GoogleLoginButton
-              style={{ marginLeft: "300px", width: "200px" }}
+            <GoogleLoginButton
+              style={{ marginLeft: "850px", width: "200px" }}
               text="Login with Google"
-            /> */}
-            <input
+            />
+            {/* <input
               type="button"
               className="loginBtn loginBtn--google"
               value="Sign in with Google"
               style={{ marginLeft: "300px" }}
-            />
+            /> */}
           </a>
           <div id="footer">
             <Footer />
