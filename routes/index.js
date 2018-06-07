@@ -1,7 +1,7 @@
 // var express = require("express");
 // var router = express.Router();
 // const passport = require("passport");
-//const GoogleStrategy = require("passport-google").Strategy;
+// const GoogleStrategy = require("passport-google").Strategy;
 
 // /* GET home page. */
 // router.get("/", function(req, res, next) {

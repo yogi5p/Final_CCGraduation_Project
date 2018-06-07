@@ -25,20 +25,31 @@ const SearchAmenities = {
 };
 
 const User = {
-  login: (useremail, password) =>
-    fetch(API_URL + "users/login", {
+  login: (useremail, password) => {
+    const requestOptions = {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        user: {
-          email: useremail,
-          password: password
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ useremail, password })
+    };
+
+    return fetch("/auth/google/callback", requestOptions)
+      .then(response => {
+        if (!response.ok) {
+          return Promise.reject(response.statusText);
         }
+
+        return response.json();
       })
-    }),
+      .then(user => {
+        // login successful if there's a jwt token in the response
+        if (user && user.token) {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem("user", JSON.stringify(user));
+        }
+
+        return user;
+      });
+  },
   register: (username, email, password) =>
     fetch(API_URL + "users", {
       method: "POST",
@@ -57,5 +68,6 @@ const User = {
 };
 
 export default {
-  SearchAmenities
+  SearchAmenities,
+  User
 };
