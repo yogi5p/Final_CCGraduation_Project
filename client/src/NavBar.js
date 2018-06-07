@@ -30,14 +30,17 @@ class NavBar extends Component {
               <Link to="/Amenities">Amenities</Link>
             </li>
             <li>
-              <Link to="/About">About</Link>
-            </li>
-            <li>
               <Link to="/Blog">Blog</Link>
             </li>
             <li>
-              <Link to="/petgallery">PetGallery</Link>
+              <Link to="/petgallery">Pet_Gallery</Link>
             </li>
+            <li>
+              <Link to="/About">About</Link>
+            </li>
+            {/* <li>
+              <a href="contact.html">Contact us</a>
+            </li> */}
           </ul>
         </div>
       </div>

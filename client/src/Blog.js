@@ -119,14 +119,17 @@ class Blog extends Component {
                   componentClass="select"
                   value={this.props.blogCategory}
                   onChange={this.handleCategoryChange}
-                  defaultValue={"product"}
+                  defaultValue={"Product"}
                 >
-                  <option value="product">Product</option>
-                  <option value="medication/vaccines">
+                  <option value="Product">Product</option>
+                  <option value="Medication/Vaccines">
                     Medication/Vaccines
                   </option>
-                  <option value="event">Event</option>
-                  <option value="breeder">Breeder</option>
+                  <option value="Event">Event</option>
+                  <option value="Breeder">Breeder</option>
+                  <option value="Pet Store">Pet Store</option>
+                  <option value="Vet Clinic">Vet Clinic</option>
+                  <option value="Other">Other</option>
                 </FormControl>
               </Col>
               <Col md={4}>
@@ -179,4 +182,7 @@ class Blog extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Blog);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Blog);
