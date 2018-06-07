@@ -15,13 +15,6 @@ var url = "mongodb://waggs:password@ds149603.mlab.com:49603/waggs";
 var app = express();
 
 mongoose.connect(url, function(err, db) {
-  //   if (err) {
-  //     console.log("Unable to connect to the mongoDB server. Error:", err);
-  //   } else {
-  //     console.log("Connection established to", url);
-  //   }
-  // });
-
   if (err) return console.error(err);
   console.log("THE DB, mongo, is connected, and I ROCK");
 });
@@ -55,7 +48,6 @@ const isAuth = (req, res, next) => {
     return next();
   } else return res.render("login", {});
 };
-
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -93,7 +85,6 @@ app.get(
 
 // app.use("/", indexRouter);
 // app.use("/users", usersRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
