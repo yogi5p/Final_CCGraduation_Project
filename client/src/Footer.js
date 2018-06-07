@@ -10,7 +10,7 @@ class Footer extends Component {
 
   render() {
     return (
-      <div class="featured" style={{ width: "100%" }}>
+      <div className="featured" style={{ width: "100%" }}>
         <div id="footnote" style={{ width: "100%" }}>
           <div className="section">
             <a href="/">Copyright @2018 Haute Dawg</a>

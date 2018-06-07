@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { Col, Grid, Row } from "react-bootstrap";
 
 import services from "./services";
-
 import "./stylesheets/style.css";
-
+import ReactDOM from "react-dom";
 import Footer from "./Footer";
+import NavBar from "./NavBar";
+import Carousel from "./Carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./stylesheets/carousel.css";
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
@@ -59,65 +63,20 @@ const mapDispatchToProps = dispatch => ({
 class petgallery extends Component {
   render() {
     return (
-      <div>
-        {console.log("I am in petgallery")}
-        <div id="content">
-          <div class="content">
-            <h2>Haute Dawg Hall of Fame: May Edition</h2>
-            <table>
-              <tr>Haute Dawg Hall of Fame: May Edition</tr>
-              <tr>Click on thumbnails below to make image larger.</tr>
+      <div style={{ marginTop: "100px" }}>
+        <h2 style={{ textAlign: "center", marginLeft: "75px" }} />
+        <h1 style={{ textAlign: "center", marginLeft: "75px" }}>June: </h1>
+        <h2 style={{ textAlign: "center", marginLeft: "75px" }}>
+          Waggies of the month{""}
+        </h2>
+        <Grid>
+          <Col>
+            <Carousel />
+          </Col>
+        </Grid>
 
-              <tr>
-                <td>
-                  <a href="images/2.jpg" data-lightbox="dogs">
-                    <img
-                      src="images/2.jpg"
-                      style={{ width: "242px", height: "200px" }}
-                    />
-                  </a>
-
-                  <a href="images/3.jpg" data-lightbox="dogs">
-                    <img
-                      src="images/3.jpg"
-                      style={{ width: "242px", height: "200px" }}
-                    />
-                  </a>
-
-                  <a href="images/4.jpg" data-lightbox="dogs">
-                    <img
-                      src="images/4.jpg"
-                      style={{ width: "242px", height: "200px" }}
-                    />
-                  </a>
-
-                  <a href="images/5.jpg" data-lightbox="dogs">
-                    <img
-                      src="images/5.jpg"
-                      style={{ width: "242px", height: "200px" }}
-                    />
-                  </a>
-                  <a href="images/6.jpg" data-lightbox="dogs">
-                    <img
-                      src="images/6.jpg"
-                      style={{ width: "242px", height: "200px" }}
-                    />
-                  </a>
-
-                  <a href="images/7.jpg" data-lightbox="dogs">
-                    <img
-                      src="images/7.jpg"
-                      style={{ width: "242px", height: "200px" }}
-                    />
-                  </a>
-                </td>
-              </tr>
-            </table>
-
-            <div id="footer">
-              <Footer />
-            </div>
-          </div>
+        <div id="footer">
+          <Footer />
         </div>
       </div>
     );
@@ -125,5 +84,8 @@ class petgallery extends Component {
 }
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(petgallery)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(petgallery)
 );

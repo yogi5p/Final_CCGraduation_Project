@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 
 import services from "./services";
 import Footer from "./Footer";
+import { GoogleLoginButton } from "react-social-login-buttons";
 
 const mapStateToProps = state => ({
   zipCode: state.common.zipCode,
@@ -54,24 +55,14 @@ const mapDispatchToProps = dispatch => ({
   setAmenitySelected: term =>
     dispatch({ type: "SET_AMENITY_SELECTED", payload: term }),
   redirectTo: () => dispatch({ type: "REDIRECT", payload: null }),
-  login: () =>
+  login: (useremail, password) =>
     dispatch({
       type: "LOGIN",
-      payload: null
+      payload: services.User.login(useremail, password)
     })
 });
 
 class HomeContent extends Component {
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.amenitySelected !== this.props.amenitySelected) {
-  //     this.props.setAmenitySelected(this.props.amenitySelected);
-  //   }
-  //   if (nextProps.redirect) {
-  //     this.props.history.push(nextProps.redirect);
-  //     this.props.redirectTo();
-  //   }
-  // }
-
   amenitySearch = () => {
     console.log(this.props.amenitySelected);
     console.log(this.props.zipCode);
@@ -81,30 +72,24 @@ class HomeContent extends Component {
     this.props.history.push("/Amenities");
   };
 
-  googleLogin = () => {
-    this.props.login(this.props.useremail, this.props.password);
-
-    // this.props.history.push("/auth/google");
-  };
-
   render() {
     return (
       <div id="body">
         <div className="banner">&nbsp;</div>
 
         <div>
-          <input
-            type="button"
-            className="loginBtn loginBtn--google"
-            value="Sign in with Google"
-            onClick={event => {
-              console.log(event);
-              event.preventDefault();
-              this.googleLogin();
-            }}
-            // onClick="location.href = '/auth/google'"
-          />
-
+          <a href="/auth/google">
+            <GoogleLoginButton
+              style={{ marginLeft: "850px", width: "200px" }}
+              text="Login with Google"
+            />
+            {/* <input
+              type="button"
+              className="loginBtn loginBtn--google"
+              value="Sign in with Google"
+              style={{ marginLeft: "300px" }}
+            /> */}
+          </a>
           <div id="footer">
             <Footer />
           </div>

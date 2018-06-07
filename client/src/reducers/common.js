@@ -8,7 +8,7 @@ const initalState = {
   username: "Yogi",
   useremail: "yogitap@gmail.com",
   password: "",
-  blogCategory: "product",
+  blogCategory: "Product",
   blogtext: "",
   blogList: [],
   blogid: 0
