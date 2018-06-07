@@ -41,7 +41,9 @@ class About extends Component {
               </p>
               <p>
                 <Button bsStyle="primary">
-                  <a href="https://github.com/yogi5p">Github</a>
+                  <a href="https://github.com/yogi5p" target="_blank">
+                    Github
+                  </a>
                 </Button>&nbsp;
                 <Button bsStyle="default">
                   <a
@@ -75,7 +77,7 @@ class About extends Component {
               </p>
               <p>
                 <Button bsStyle="primary">
-                  <a href="https://github.com/chelseasworld09">Github</a>
+                  <a href="https://github.com/chelseasworld09" target="_blank">Github</a>
                 </Button>&nbsp;
                 <Button bsStyle="default">
                   <a
@@ -111,7 +113,7 @@ class About extends Component {
               </p>
               <p>
                 <Button bsStyle="primary">
-                  <a href="https://github.com/ljpayton">Github</a>
+                  <a href="https://github.com/ljpayton" target="_blank">Github</a>
                 </Button>&nbsp;
                 <Button bsStyle="default">
                   <a
@@ -143,7 +145,7 @@ class About extends Component {
               </p>
               <p>
                 <Button bsStyle="primary">
-                  <a href="https://github.com/Chatfieldd ">Github</a>
+                  <a href="https://github.com/Chatfieldd " target="_blank">Github</a>
                 </Button>&nbsp;
                 <Button bsStyle="default">
                   <a
