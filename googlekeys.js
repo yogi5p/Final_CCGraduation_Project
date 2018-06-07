@@ -1,4 +1,3 @@
-
 // Lyric's keys
 //  module.exports = {
 //   clientID:
@@ -12,5 +11,5 @@ module.exports = {
   clientID:
     "831755783407-nmrotfdoc4t8t6r0otk57umju9m963sj.apps.googleusercontent.com",
   clientSecret: "4GZ8PEfpzqia1HyBy3UN35_s",
-  callbackUrl: "http://localhost:3030/auth/google/callback"
+  callbackUrl: "/auth/google/callback"
 };
